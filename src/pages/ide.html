@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MatrioshTS</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../scripts/parsers/analyzer.js"></script>
+</head>
+<body>
+    <textarea id="txtEntrada" cols="75" rows="28" style="background-color:#CCC;font-style:italic">
+
+    </textarea>
+    <p/>
+    <button id="btnGenerar">Generar codigo</button>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btnGenerar").click(function(){
+                entrada = $("#txtEntrada").val();
+                ejecutar(entrada);
+            });
+        });
+
+        function ejecutar(entrada){
+            try {
+                analyzer.parse(entrada);
+                alert("ok");
+            }catch (e){
+                alert(e);
+            }
+        }
+    </script>
+</body>
+</html>
