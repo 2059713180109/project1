@@ -7,3 +7,13 @@ function mi_funcion (MI_VAR:number, mi_var2:string):void {}
 
 
 function mi_funcion ():void {}
+
+        type llanta = {
+        rin:number,
+        marca:string
+        }
+        type carro = {
+            marca:string,
+            llanta1: llanta
+        }
+

@@ -85,7 +85,21 @@ DECLARACIOINES: DECLARACION DECLARACIOINES
 
 DECLARACION:	DEC_DECLAVAR
                 |DEC_FUN
+                |DEC_TYPE
 				;
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DECLARACION DE TIPOS +*/
+
+DEC_TYPE:       type_ id igual llave_abre LIST_ATRIBUTOS llave_cierra
+                ;
+
+LIST_ATRIBUTOS: id dos_puntos TDATO  LIST_ATRIBUTOS_P
+                ;
+
+LIST_ATRIBUTOS_P:   coma_ id dos_puntos TDATO LIST_ATRIBUTOS_P
+                    |
+                    ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DECLARACION DE VARIABLES +*/
 
