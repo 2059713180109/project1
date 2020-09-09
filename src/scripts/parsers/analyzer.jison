@@ -21,7 +21,15 @@
 "pop"   return 'pop_'
 "length"    return 'length_'
 ","    return 'coma_'
+"function"  return 'function_'
 
+
+"["						return	'cor_abre'
+"]"						return	'cor_cierra'
+"{"						return	'llave_abre'
+"}"						return	'llave_cierra'
+"("						return	'par_abre'
+")"						return	'par_cierra'
 
 
 /*OPERATORS*/
@@ -67,7 +75,7 @@ S
         {   }
     ;
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DECLARACIONES++++++++++++*/
 
 DECLARACIOINES: DECLARACION DECLARACIOINES
 			|
@@ -75,19 +83,12 @@ DECLARACIOINES: DECLARACION DECLARACIOINES
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-TDATO:	number_     {$$=$1;}
-		|string_    {$$=$1;}
-		|boolean_   {$$=$1;}
-		|id         {$$=$1;}
-		|void_      {$$=$1;}
-		;
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
 DECLARACION:	DEC_DECLAVAR
+                |DEC_FUN
 				;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DECLARACION DE VARIABLES +*/
+
 
 DEC_DECLAVAR:	const_ D_VAR LIST_VAR
                 |let_ D_VAR LIST_VAR
@@ -116,3 +117,30 @@ T:              num
                 |str
                 ;
 
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DECLARACION DE FUNCIONES +*/
+
+DEC_FUN:        function_ id par_abre LIST_PAR par_cierra dos_puntos TDATO llave_abre llave_cierra
+                ;
+
+LIST_PAR:       PARAM LIST_PAR_P
+                |
+                ;
+
+LIST_PAR_P:     coma_ PARAM LIST_PAR_P
+                |
+                ;
+
+PARAM:          id  dos_puntos  TDATO
+                ;
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++TIPOS DE DATOS ++++++++*/
+
+TDATO:	number_     {$$=$1;}
+		|string_    {$$=$1;}
+		|boolean_   {$$=$1;}
+		|id         {$$=$1;}
+		|void_      {$$=$1;}
+		;

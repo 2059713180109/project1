@@ -2,3 +2,8 @@
 
 let x:string = 'asfasd', y:number , z=4
 let a,b,c
+
+function mi_funcion (MI_VAR:number, mi_var2:string):void {}
+
+
+function mi_funcion ():void {}
