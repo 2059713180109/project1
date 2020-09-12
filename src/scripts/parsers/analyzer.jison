@@ -30,12 +30,28 @@
 "}"						return	'llave_cierra'
 "("						return	'par_abre'
 ")"						return	'par_cierra'
+"&&"					return	'and_'
+"||"					return	'or_'
+"!"						return	'not_'
 
+"<="					return	'menor_igual'
+"<"						return	'menor'
+">="					return	'mayor_igual'
+">"						return	'mayor'
+"=="					return	'igual_igual'
+"!="					return	'diferente'
 
 /*OPERATORS*/
 "="                   	return 'igual'
 ":"                   	return 'dos_puntos'
-/*OPERATORS*/
+";"                   	return 'punto_coma'
+/*ARITHMETIC OPERATORS */
+"**"                   	return 'pot'
+"*"                   	return 'por'
+"/"                   	return 'div'
+"-"                   	return 'menos'
+"+"                   	return 'mas'
+"%"                   	return 'mod'
 
 
 /*REGULAR EXPRESSIONS*/
@@ -55,8 +71,13 @@
 /* operator associations and precedence */
 
 
+%left 'mas' 'menos'
+%left 'por' 'div' 'mod'
+%right 'pot'
+%left 'or_'
+%left 'and_'
 
-
+%left 'not_'
 
 %start S
 
@@ -71,19 +92,19 @@
 
 
 S
-    : DECLARACIOINES EOF
+    : SENTENCIAS EOF
         {   }
     ;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DECLARACIONES++++++++++++*/
 
-DECLARACIOINES: DECLARACION DECLARACIOINES
+SENTENCIAS: SENTENCIA SENTENCIAS
 			|
 			;
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-DECLARACION:	DEC_DECLAVAR
+SENTENCIA:	    DEC_DECLAVAR
                 |DEC_FUN
                 |DEC_TYPE
 				;
@@ -121,7 +142,7 @@ D_VAR_P1:       igual T
                 |
                 ;
 
-D_VAR_P2:       igual T
+D_VAR_P2:       igual CONDICION_OR
                 |
                 ;
 
@@ -150,11 +171,71 @@ LIST_PAR_P:     coma_ PARAM LIST_PAR_P
 PARAM:          id  dos_puntos  TDATO
                 ;
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++TIPOS DE DATOS ++++++++*/
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*****************CONDICION++*/
+
+
+CONDICION_OR:   CONDICION_AND CONDICION_OR_P
+                ;
+
+CONDICION_OR_P: or_ CONDICION_OR
+                |
+                ;
+
+CONDICION_AND:  CONDICION CONDICION_AND_P
+                ;
+
+CONDICION_AND_P:    and_ CONDICION_AND
+                    |
+                    ;
+
+CONDICION:	E SIG_REL E
+			|E
+			|not_ CONDICION
+			;
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********************EXPRESION++*/
+//======================== E => E + E | E - E ;
+
+E:          F  E_P;
+
+E_P:        mas F E_P
+            |menos F E_P
+            |
+            ;
+
+//======================== E => E * E | E / E | E % E ;
+F:          R  F_P;
+
+F_P:        por R F_P
+            |div R F_P
+            |mod R F_P
+            |
+            ;
+
+//======================== E = E ^ E ;
+R:          T   R_P     ;
+
+R_P:        pot T R_P
+            |
+            ;
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+TIPOS DE DATOS ++++++++*/
 
 TDATO:	number_     {$$=$1;}
 		|string_    {$$=$1;}
 		|boolean_   {$$=$1;}
 		|id         {$$=$1;}
 		|void_      {$$=$1;}
+		;
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++OPERADORES RELACIONALES+*/
+
+ SIG_REL :      menor
+                |mayor
+                |menor_igual
+                |mayor_igual
+                |igual_igual
+                |diferente
 		;

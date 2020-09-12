@@ -17,3 +17,10 @@ function mi_funcion ():void {}
             llanta1: llanta
         }
 
+let x : boolean = 3 < 4 && 3 < 3 || 4> 4 && !true
+
+let x : number =  24 + 4 < 3 + 1 - 4 , s
+
+let miVar : number = 5 + 6 * 4 -4  / 4 ** 5
+
+let var2 : number = 555+3 * 5 + 4 + 4 / 4 - 4 / 2 / 3
