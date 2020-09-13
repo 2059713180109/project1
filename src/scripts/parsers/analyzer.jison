@@ -224,6 +224,7 @@ T:              par_abre CONDICION_OR par_cierra
                 |num
                 |bool
                 |str
+                |null_
                 |OBJETO_FUNCION
                 ;
 

@@ -30,3 +30,5 @@ let var2 : number = 555+3 * 5 + 4 + 4 / 4 - 4 / (2 / 3)
 let var2 : number = funcion(3,5)
 
 let var2 : number = miFuncion(3,5).x.pop().y[4][5].y[4]
+
+let miVar : number = null
