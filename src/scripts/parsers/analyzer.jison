@@ -21,6 +21,7 @@
 "pop"   return 'pop_'
 "length"    return 'length_'
 ","    return 'coma_'
+"."    return 'punto_'
 "function"  return 'function_'
 
 
@@ -223,8 +224,54 @@ T:              par_abre CONDICION_OR par_cierra
                 |num
                 |bool
                 |str
+                |OBJETO_FUNCION
                 ;
 
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** OBJETOS ++++*/
+/**
+* T => FUNCION | OBJETO ;
+* FUNCION:        id PARAMETROS_FUNCION;
+* OBJETO:         id DIMENSION ;
+*/
+
+OBJETO_FUNCION: id OBJ_FUN_CUERPO;
+
+OBJ_FUN_CUERPO: PARAMETROS_FUNCION SUB_OBJETO
+                | DIMENSION SUB_OBJETO
+                ;
+
+SUB_OBJETO:     punto_  OB_ATRIBUTO
+                |
+                ;
+
+OB_ATRIBUTO:    id DIMENSION SUB_OBJETO
+                |push_ PARAMETROS_FUNCION SUB_OBJETO
+                |pop_ PARAMETROS_FUNCION SUB_OBJETO
+                |length_ PARAMETROS_FUNCION SUB_OBJETO
+                ;
+
+
+DIMENSION:      cor_abre CONDICION cor_cierra DIMENSION
+                |
+                ;
+
+
+
+PARAMETROS_FUNCION:     par_abre ARGUMENTOS par_cierra
+                        ;
+
+
+ARGUMENTOS:             CONDICION ARGUMENTOS_P
+                        |
+                        ;
+
+
+ARGUMENTOS_P:           coma_  CONDICION  ARGUMENTOS_P
+                        |
+                        ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+TIPOS DE DATOS ++++++++*/
 
