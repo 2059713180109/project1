@@ -225,11 +225,22 @@ T:              par_abre CONDICION_OR par_cierra
                 |bool
                 |str
                 |null_
+                |ARREGLO
                 |OBJETO_FUNCION
                 ;
 
 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** ARREGLO ++++*/
 
+ARREGLO:        cor_abre ELEMENTOS cor_cierra;
+
+ELEMENTOS:      CONDICION ELEMENTOS_P
+                |
+                ;
+
+ELEMENTOS_P:     coma_  CONDICION  ELEMENTOS_P
+                |
+                ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** OBJETOS ++++*/
 /**
