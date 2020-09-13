@@ -97,7 +97,7 @@ S
         {   }
     ;
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++DECLARACIONES++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SENTENCIAS++++++++++++*/
 
 SENTENCIAS: SENTENCIA SENTENCIAS
 			|
@@ -108,7 +108,9 @@ SENTENCIAS: SENTENCIA SENTENCIAS
 SENTENCIA:	    DEC_DECLAVAR
                 |DEC_FUN
                 |DEC_TYPE
+                |ASIGNACION
 				;
+
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DECLARACION DE TIPOS +*/
@@ -284,6 +286,12 @@ ARGUMENTOS:             CONDICION ARGUMENTOS_P
 ARGUMENTOS_P:           coma_  CONDICION  ARGUMENTOS_P
                         |
                         ;
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ASIGNACION++++++++++++*/
+
+ASIGNACION:             id igual CONDICION;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+TIPOS DE DATOS ++++++++*/
 

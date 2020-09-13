@@ -36,3 +36,5 @@ let miVar : number = null
 let miArr: number = [1,3,5,5]
 
 let miMatriz: number = [[1,3,5,5],[1,3,5,5],[1,3,5,5],[1,3,5,5]]
+
+x = 3
