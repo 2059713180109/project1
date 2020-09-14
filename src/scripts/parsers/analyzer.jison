@@ -191,7 +191,7 @@ CONDICION_AND_P:    and_ CONDICION_AND
 
 CONDICION:	E SIG_REL E
 			|E
-			|not_ CONDICION
+			|not_ E
 			;
 
 
@@ -249,11 +249,11 @@ UNARIO:         incremento_
 
 ARREGLO:        cor_abre ELEMENTOS cor_cierra;
 
-ELEMENTOS:      CONDICION ELEMENTOS_P
+ELEMENTOS:      CONDICION_OR ELEMENTOS_P
                 |
                 ;
 
-ELEMENTOS_P:     coma_  CONDICION  ELEMENTOS_P
+ELEMENTOS_P:     coma_  CONDICION_OR  ELEMENTOS_P
                 |
                 ;
 
@@ -281,7 +281,7 @@ OB_ATRIBUTO:    id DIMENSION SUB_OBJETO
                 ;
 
 
-DIMENSION:      cor_abre CONDICION cor_cierra DIMENSION
+DIMENSION:      cor_abre CONDICION_OR cor_cierra DIMENSION
                 |
                 ;
 
@@ -291,12 +291,12 @@ PARAMETROS_FUNCION:     par_abre ARGUMENTOS par_cierra
                         ;
 
 
-ARGUMENTOS:             CONDICION ARGUMENTOS_P
+ARGUMENTOS:             CONDICION_OR ARGUMENTOS_P
                         |
                         ;
 
 
-ARGUMENTOS_P:           coma_  CONDICION  ARGUMENTOS_P
+ARGUMENTOS_P:           coma_  CONDICION_OR  ARGUMENTOS_P
                         |
                         ;
 
@@ -304,7 +304,7 @@ ARGUMENTOS_P:           coma_  CONDICION  ARGUMENTOS_P
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ASIGNACION++++++++++++*/
 
-ASIGNACION:             id igual CONDICION;
+ASIGNACION:             id igual CONDICION_OR;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+TIPOS DE DATOS ++++++++*/
 

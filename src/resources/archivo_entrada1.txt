@@ -44,3 +44,5 @@ s = -4
 x = -4- -5-4+x++ -x--
 
 m = x--
+
+x = !false && true || !(true == false)
