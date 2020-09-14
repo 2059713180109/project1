@@ -34,6 +34,7 @@
 "&&"					return	'and_'
 "||"					return	'or_'
 "!"						return	'not_'
+"?"						return	'interrogacion_'
 
 "<="					return	'menor_igual'
 "<"						return	'menor'
@@ -81,6 +82,8 @@
 %left 'and_'
 
 %left 'not_'
+
+%right 'interrogacion_'
 
 %start S
 
@@ -189,9 +192,15 @@ CONDICION_AND_P:    and_ CONDICION_AND
                     |
                     ;
 
-CONDICION:	E SIG_REL E
+CONDICION:       COND TERNARIO
+                ;
+
+TERNARIO:       interrogacion_ COND dos_puntos COND
+                |
+                ;
+
+COND:	    E SIG_REL E
 			|E
-			|not_ E
 			;
 
 
@@ -226,9 +235,10 @@ R_P:        pot T R_P
 
 T:              T_P
                 |menos T_P
+                |not_ T_P
                 ;
 
-T_P:              par_abre CONDICION_OR par_cierra
+T_P:             par_abre CONDICION_OR par_cierra
                 |num
                 |bool
                 |str

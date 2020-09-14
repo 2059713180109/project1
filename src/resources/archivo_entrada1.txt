@@ -46,3 +46,13 @@ x = -4- -5-4+x++ -x--
 m = x--
 
 x = !false && true || !(true == false)
+
+x = !false && true?true:false || !(true == false)
+
+let eddieLives: string = 5 > 4 ? "Sip" : "Nop"
+
+eddieLives = !x? "Sip" : "Nop"
+
+let lives: string = !(5 > 4) ? "Sip" : "Nop"
+
+x = !false && !(3>4 && (!false|| x))?true:false || !(true == false)
