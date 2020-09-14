@@ -41,6 +41,8 @@
 ">"						return	'mayor'
 "=="					return	'igual_igual'
 "!="					return	'diferente'
+"++"					return 	'incremento_'
+"--"					return 	'decremento_'
 
 /*OPERATORS*/
 "="                   	return 'igual'
@@ -232,11 +234,16 @@ T_P:              par_abre CONDICION_OR par_cierra
                 |str
                 |null_
                 |ARREGLO
-                |OBJETO_FUNCION
+                |OBJETO_FUNCION UNARIO
                 ;
 
 NEGATIVO:       menos
                 |;
+
+UNARIO:         incremento_
+                |decremento_
+                |
+                ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** ARREGLO ++++*/
 
