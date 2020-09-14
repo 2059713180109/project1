@@ -222,7 +222,11 @@ R_P:        pot T R_P
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** VALORES ++++*/
 
-T:              par_abre CONDICION_OR par_cierra
+T:              T_P
+                |menos T_P
+                ;
+
+T_P:              par_abre CONDICION_OR par_cierra
                 |num
                 |bool
                 |str
@@ -231,6 +235,8 @@ T:              par_abre CONDICION_OR par_cierra
                 |OBJETO_FUNCION
                 ;
 
+NEGATIVO:       menos
+                |;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** ARREGLO ++++*/
 
