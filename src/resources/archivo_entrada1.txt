@@ -56,3 +56,29 @@ eddieLives = !x? "Sip" : "Nop"
 let lives: string = !(5 > 4) ? "Sip" : "Nop"
 
 x = !false && !(3>4 && (!false|| x))?true:false || !(true == false)
+
+
+
+        if (true) { }
+        if (false) {} else if (true){}
+        if(false) { } else { }
+
+        do{} while(true)
+
+
+switch(x) {
+    case 2:
+    case 3:
+    default :
+}
+
+for(let x = 0 ; x <4 ; x++){
+}
+for(let x = 0 ; x <4 ; x=x+1){
+}
+for (const  prop in obj) {
+
+}
+for (let entry of iterable) {
+
+}

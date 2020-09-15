@@ -23,6 +23,16 @@
 ","    return 'coma_'
 "."    return 'punto_'
 "function"  return 'function_'
+"if"						return	'if_'
+"else"						return	'else_'
+"switch"					return	'switch_'
+"case"						return	'case_'
+"default"					return	'default_'
+"while"						return	'while_'
+"do"						return	'do_'
+"for"						return	'for_'
+"in"						return	'in_'
+"of"						return	'of_'
 
 
 "["						return	'cor_abre'
@@ -114,6 +124,11 @@ SENTENCIA:	    DEC_DECLAVAR
                 |DEC_FUN
                 |DEC_TYPE
                 |ASIGNACION
+                |IF
+                |WHILE
+                |DO_WHILE
+                |SWITCH
+                |FOR
 				;
 
 
@@ -316,6 +331,8 @@ ARGUMENTOS_P:           coma_  CONDICION_OR  ARGUMENTOS_P
 
 ASIGNACION:             id igual CONDICION_OR;
 
+
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+TIPOS DE DATOS ++++++++*/
 
 TDATO:	number_     {$$=$1;}
@@ -334,3 +351,73 @@ TDATO:	number_     {$$=$1;}
                 |igual_igual
                 |diferente
 		;
+
+
+
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*******************************	ESTRUCTURAS DE CONTROL	**********************************/
+/*********************************************************************************************/
+
+
+/******************************************************************************************************* IF ***/
+
+IF_SENTENCE:    llave_abre SENTENCIAS llave_cierra;
+
+IF_CONDICION:   par_abre CONDICION_OR par_cierra;
+
+IF_STATEMENT:   if_ IF_CONDICION IF_SENTENCE ;
+
+
+IF:		        IF_STATEMENT ELSE_IF ;
+
+ELSE_IF:    else_ ELSE_IF_P
+            |
+            ;
+
+ELSE_IF_P:  IF_STATEMENT ELSE_IF
+            |IF_SENTENCE
+            ;
+
+
+
+/****************************************************************************************************** WHILE ***/
+
+WHILE:      while_ IF_CONDICION IF_SENTENCE ;
+
+DO_WHILE:   do_  IF_SENTENCE while_ IF_CONDICION ;
+
+
+
+/****************************************************************************************************** SWITCH ***/
+
+SWITCH:     switch_ IF_CONDICION llave_abre CASOS llave_cierra ;
+
+CASOS:      case_ CONDICION_OR dos_puntos SENTENCIAS CASOS
+            |default_ dos_puntos SENTENCIAS
+            |
+            ;
+
+
+/****************************************************************************************************** SWITCH ***/
+
+FOR:        for_ par_abre FOR_P
+            ;
+
+FOR_P:      let_ FOR_LET
+            |const_ FOR_CONST
+            ;
+
+FOR_LET:    FOR_TRADICIONAL
+            |FOR_OF
+            ;
+
+FOR_TRADICIONAL:    id igual CONDICION_OR punto_coma CONDICION_OR punto_coma FOR_TRADICIONAL_INC par_cierra IF_SENTENCE;
+
+FOR_TRADICIONAL_INC:    ASIGNACION
+                        |CONDICION_OR
+                        ;
+
+FOR_OF:                 id of_ id par_cierra IF_SENTENCE;
+
+FOR_CONST:              id in_ id par_cierra IF_SENTENCE;
