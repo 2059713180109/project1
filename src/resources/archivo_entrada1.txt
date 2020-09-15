@@ -80,5 +80,8 @@ for (const  prop in obj) {
 
 }
 for (let entry of iterable) {
-
+        break ;
+        continue ;
+        return ;
+        return 1 ;
 }

@@ -33,6 +33,10 @@
 "for"						return	'for_'
 "in"						return	'in_'
 "of"						return	'of_'
+"return"					return	'return_'
+"break"						return	'break_'
+"continue"					return	'continue_'
+
 
 
 "["						return	'cor_abre'
@@ -94,6 +98,7 @@
 %left 'not_'
 
 %right 'interrogacion_'
+%right 'return_'
 
 %start S
 
@@ -120,15 +125,18 @@ SENTENCIAS: SENTENCIA SENTENCIAS
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-SENTENCIA:	    DEC_DECLAVAR
-                |DEC_FUN
-                |DEC_TYPE
-                |ASIGNACION
+SENTENCIA:	    DEC_DECLAVAR punto_coma
+                |DEC_FUN punto_coma
+                |DEC_TYPE punto_coma
+                |ASIGNACION punto_coma
                 |IF
                 |WHILE
-                |DO_WHILE
+                |DO_WHILE punto_coma
                 |SWITCH
                 |FOR
+                |BREAK punto_coma
+                |CONTINUE punto_coma
+                |RETURN punto_coma
 				;
 
 
@@ -175,7 +183,7 @@ D_VAR_P2:       igual CONDICION_OR
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DECLARACION DE FUNCIONES +*/
 
-DEC_FUN:        function_ id par_abre LIST_PAR par_cierra dos_puntos TDATO llave_abre llave_cierra
+DEC_FUN:        function_ id par_abre LIST_PAR par_cierra dos_puntos TDATO llave_abre SENTENCIAS llave_cierra
                 ;
 
 LIST_PAR:       PARAM LIST_PAR_P
@@ -399,7 +407,7 @@ CASOS:      case_ CONDICION_OR dos_puntos SENTENCIAS CASOS
             ;
 
 
-/****************************************************************************************************** SWITCH ***/
+/****************************************************************************************************** FOR  ***/
 
 FOR:        for_ par_abre FOR_P
             ;
@@ -421,3 +429,18 @@ FOR_TRADICIONAL_INC:    ASIGNACION
 FOR_OF:                 id of_ id par_cierra IF_SENTENCE;
 
 FOR_CONST:              id in_ id par_cierra IF_SENTENCE;
+
+
+
+/****************************************************************************************************** OTHERS ***/
+
+BREAK:                  break_;
+
+CONTINUE:               continue_;
+
+RETURN:                 return_  RETURN_P
+                        ;
+
+RETURN_P:               CONDICION_OR
+                        |
+                        ;
