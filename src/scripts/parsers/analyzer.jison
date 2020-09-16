@@ -333,8 +333,8 @@ SUB_OBJETO:     punto_  OB_ATRIBUTO
 
 OB_ATRIBUTO:    id DIMENSION SUB_OBJETO
                 |push_ PARAMETROS_FUNCION SUB_OBJETO
-                |pop_ PARAMETROS_FUNCION SUB_OBJETO
-                |length_ PARAMETROS_FUNCION SUB_OBJETO
+                |pop_  SUB_OBJETO
+                |length_
                 ;
 
 
@@ -370,12 +370,16 @@ OPERADOR_ASIGNACION:    igual
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+TIPOS DE DATOS ++++++++*/
 
-TDATO:	number_     {$$=$1;}
-		|string_    {$$=$1;}
-		|boolean_   {$$=$1;}
-		|id         {$$=$1;}
+TDATO:	number_ TDIMENSION     {$$=$1;}
+		|string_ TDIMENSION   {$$=$1;}
+		|boolean_ TDIMENSION  {$$=$1;}
+		|id TDIMENSION        {$$=$1;}
 		|void_      {$$=$1;}
 		;
+
+TDIMENSION:             cor_abre cor_cierra TDIMENSION
+                        |
+                        ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++OPERADORES RELACIONALES+*/
 
@@ -476,4 +480,4 @@ RETURN_P:               CONDICION_OR
 
 /****************************************************************************************************** CONSOLA  ***/
 
-CONSOLA:                console_ punto_ log_ par_abre CONDICION_OR par_cierra ;
+CONSOLA:                console_ punto_ log_ PARAMETROS_FUNCION ;
