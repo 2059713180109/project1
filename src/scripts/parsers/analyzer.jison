@@ -36,7 +36,18 @@
 "return"					return	'return_'
 "break"						return	'break_'
 "continue"					return	'continue_'
+"console"                   return  'console_'
+"log"                       return  'log_'
 
+
+"<="					return	'menor_igual'
+"<"						return	'menor'
+">="					return	'mayor_igual'
+">"						return	'mayor'
+"=="					return	'igual_igual'
+"!="					return	'diferente'
+"++"					return 	'incremento_'
+"--"					return 	'decremento_'
 
 
 "["						return	'cor_abre'
@@ -50,16 +61,9 @@
 "!"						return	'not_'
 "?"						return	'interrogacion_'
 
-"<="					return	'menor_igual'
-"<"						return	'menor'
-">="					return	'mayor_igual'
-">"						return	'mayor'
-"=="					return	'igual_igual'
-"!="					return	'diferente'
-"++"					return 	'incremento_'
-"--"					return 	'decremento_'
-
 /*OPERATORS*/
+"+="                   	return 'mas_igual'
+"-="                   	return 'menos_igual'
 "="                   	return 'igual'
 ":"                   	return 'dos_puntos'
 ";"                   	return 'punto_coma'
@@ -80,6 +84,7 @@
 "\""[^\"\n]*"\"" 			return 'str'
 "'"[^''\n]*"'" 				return 'str'
 "‘"[^''\n]*"’" 				return 'str'
+"`"[^''\n]*"`" 				return 'str'
 [a-zA-Z]([a-zA-Z0-9]|"_")*			return 'id'
 <<EOF>>               return 'EOF'
 .                     return 'INVALID'
@@ -98,7 +103,7 @@
 %left 'not_'
 
 %right 'interrogacion_'
-%right 'return_'
+%right 'dos_puntos'
 
 %start S
 
@@ -126,7 +131,7 @@ SENTENCIAS: SENTENCIA SENTENCIAS
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 SENTENCIA:	    DEC_DECLAVAR punto_coma
-                |DEC_FUN punto_coma
+                |DEC_FUN
                 |DEC_TYPE punto_coma
                 |ASIGNACION punto_coma
                 |IF
@@ -137,6 +142,8 @@ SENTENCIA:	    DEC_DECLAVAR punto_coma
                 |BREAK punto_coma
                 |CONTINUE punto_coma
                 |RETURN punto_coma
+                |OBJETO_FUNCION UNARIO punto_coma
+                |CONSOLA punto_coma
 				;
 
 
@@ -146,12 +153,14 @@ SENTENCIA:	    DEC_DECLAVAR punto_coma
 DEC_TYPE:       type_ id igual llave_abre LIST_ATRIBUTOS llave_cierra
                 ;
 
-LIST_ATRIBUTOS: id dos_puntos TDATO  LIST_ATRIBUTOS_P
+LIST_ATRIBUTOS: DEC_ATRIBUTO  LIST_ATRIBUTOS_P
                 ;
 
-LIST_ATRIBUTOS_P:   coma_ id dos_puntos TDATO LIST_ATRIBUTOS_P
+LIST_ATRIBUTOS_P:   coma_ DEC_ATRIBUTO LIST_ATRIBUTOS_P
                     |
                     ;
+
+DEC_ATRIBUTO:       id dos_puntos TDATO;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DECLARACION DE VARIABLES +*/
 
@@ -268,6 +277,7 @@ T_P:             par_abre CONDICION_OR par_cierra
                 |null_
                 |ARREGLO
                 |OBJETO_FUNCION UNARIO
+                |OBJETO_TYPE
                 ;
 
 NEGATIVO:       menos
@@ -289,6 +299,20 @@ ELEMENTOS:      CONDICION_OR ELEMENTOS_P
 ELEMENTOS_P:     coma_  CONDICION_OR  ELEMENTOS_P
                 |
                 ;
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+******** TIPOS EN MEMORIA ++++*/
+
+OBJETO_TYPE:       llave_abre  ATRIBUTOS  llave_cierra
+                ;
+
+ATRIBUTOS:       ATRIBUTO ATRIBUTOS_P
+                ;
+
+ATRIBUTOS_P:    coma_  ATRIBUTO  ATRIBUTOS_P
+                |
+                ;
+
+ATRIBUTO:       id dos_puntos CONDICION_OR ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** OBJETOS ++++*/
 /**
@@ -337,9 +361,12 @@ ARGUMENTOS_P:           coma_  CONDICION_OR  ARGUMENTOS_P
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ASIGNACION++++++++++++*/
 
-ASIGNACION:             id igual CONDICION_OR;
+ASIGNACION:             OBJETO_FUNCION OPERADOR_ASIGNACION CONDICION_OR;
 
-
+OPERADOR_ASIGNACION:    igual
+                        |menos_igual
+                        |mas_igual
+                        ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+TIPOS DE DATOS ++++++++*/
 
@@ -444,3 +471,9 @@ RETURN:                 return_  RETURN_P
 RETURN_P:               CONDICION_OR
                         |
                         ;
+
+
+
+/****************************************************************************************************** CONSOLA  ***/
+
+CONSOLA:                console_ punto_ log_ par_abre CONDICION_OR par_cierra ;

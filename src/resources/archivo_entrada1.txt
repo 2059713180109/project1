@@ -1,7 +1,7 @@
 
 
-let x:string = 'asfasd', y:number , z=4
-let a,b,c
+let x:string = 'asfasd', y:number , z=4 ;
+let a,b,c ;
 
 function mi_funcion (MI_VAR:number, mi_var2:string):void {}
 
@@ -11,51 +11,51 @@ function mi_funcion ():void {}
         type llanta = {
         rin:number,
         marca:string
-        }
+        } ;
         type carro = {
             marca:string,
             llanta1: llanta
-        }
+        } ;
 
-let x : boolean = 3 < 4 && 3 < 3 || 4> 4 && !true
+let x : boolean = 3 < 4 && 3 < 3 || 4> 4 && !true ;
 
-let x : number =  24 + 4 < 3 + 1 - 4 , s
+let x : number =  24 + 4 < 3 + 1 - 4 , s ;
 
-let miVar : number = 5 + 6 * 4 -4  / 4 ** 5
+let miVar : number = 5 + 6 * 4 -4  / 4 ** 5 ;
 
-let var2 : number = 555+3 * 5 + 4 + 4 / 4 - 4 / 2 / 3
+let var2 : number = 555+3 * 5 + 4 + 4 / 4 - 4 / 2 / 3 ;
 
-let var2 : number = 555+3 * 5 + 4 + 4 / 4 - 4 / (2 / 3)
+let var2 : number = 555+3 * 5 + 4 + 4 / 4 - 4 / (2 / 3) ;
 
-let var2 : number = funcion(3,5)
+let var2 : number = funcion(3,5) ;
 
-let var2 : number = miFuncion(3,5).x.pop().y[4][5].y[4]
+let var2 : number = miFuncion(3,5).x.pop().y[4][5].y[4] ;
 
-let miVar : number = null
+let miVar : number = null;
 
-let miArr: number = [1,3,5,5]
+let miArr: number = [1,3,5,5] ;
 
-let miMatriz: number = [[1,3,5,5],[1,3,5,5],[1,3,5,5],[1,3,5,5]]
+let miMatriz: number = [[1,3,5,5],[1,3,5,5],[1,3,5,5],[1,3,5,5]] ;
 
-x = 3
+x = 3 ;
 
-s = -4
+s = -4 ;
 
-x = -4- -5-4+x++ -x--
+x = -4- -5-4+x++ -x-- ;
 
-m = x--
+m = x-- ;
 
-x = !false && true || !(true == false)
+x = !false && true || !(true == false) ;
 
-x = !false && true?true:false || !(true == false)
+x = !false && true?true:false || !(true == false) ;
 
-let eddieLives: string = 5 > 4 ? "Sip" : "Nop"
+let eddieLives: string = 5 > 4 ? "Sip" : "Nop" ;
 
-eddieLives = !x? "Sip" : "Nop"
+eddieLives = !x? "Sip" : "Nop" ;
 
-let lives: string = !(5 > 4) ? "Sip" : "Nop"
+let lives: string = !(5 > 4) ? "Sip" : "Nop" ;
 
-x = !false && !(3>4 && (!false|| x))?true:false || !(true == false)
+x = !false && !(3>4 && (!false|| x))?true:false || !(true == false) ;
 
 
 
@@ -63,7 +63,7 @@ x = !false && !(3>4 && (!false|| x))?true:false || !(true == false)
         if (false) {} else if (true){}
         if(false) { } else { }
 
-        do{} while(true)
+        do{} while(true) ;
 
 
 switch(x) {
