@@ -177,7 +177,7 @@ LIST_VAR:       coma_  D_VAR  LIST_VAR
 D_VAR:          id  D_VAR_P1
                 ;
 
-D_VAR_P1:       igual T
+D_VAR_P1:       igual CONDICION_OR
                 |dos_puntos TDATO D_VAR_P2
                 |
                 ;
