@@ -177,12 +177,12 @@ LIST_VAR:       coma_  D_VAR  LIST_VAR
 D_VAR:          id  D_VAR_P1
                 ;
 
-D_VAR_P1:       igual CONDICION_OR
+D_VAR_P1:       igual CONDICION_TER
                 |dos_puntos TDATO D_VAR_P2
                 |
                 ;
 
-D_VAR_P2:       igual CONDICION_OR
+D_VAR_P2:       igual CONDICION_TER
                 |
                 ;
 
@@ -209,6 +209,7 @@ PARAM:          id  dos_puntos  TDATO
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*****************CONDICION++*/
 
+CONDICION_TER:  CONDICION_OR TERNARIO;
 
 CONDICION_OR:   CONDICION_AND CONDICION_OR_P
                 ;
@@ -224,16 +225,14 @@ CONDICION_AND_P:    and_ CONDICION_AND
                     |
                     ;
 
-CONDICION:       COND TERNARIO
-                ;
-
-TERNARIO:       interrogacion_ COND dos_puntos COND
+TERNARIO:       interrogacion_ CONDICION_TER dos_puntos CONDICION_TER
                 |
                 ;
 
-COND:	    E SIG_REL E
-			|E
-			;
+CONDICION:	    E SIG_REL E
+			    |E
+			    ;
+
 
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********************EXPRESION++*/
@@ -270,7 +269,7 @@ T:              T_P
                 |not_ T_P
                 ;
 
-T_P:             par_abre CONDICION_OR par_cierra
+T_P:             par_abre CONDICION_TER par_cierra
                 |num
                 |bool
                 |str
@@ -292,11 +291,11 @@ UNARIO:         incremento_
 
 ARREGLO:        cor_abre ELEMENTOS cor_cierra;
 
-ELEMENTOS:      CONDICION_OR ELEMENTOS_P
+ELEMENTOS:      CONDICION_TER ELEMENTOS_P
                 |
                 ;
 
-ELEMENTOS_P:     coma_  CONDICION_OR  ELEMENTOS_P
+ELEMENTOS_P:     coma_  CONDICION_TER  ELEMENTOS_P
                 |
                 ;
 
@@ -312,7 +311,7 @@ ATRIBUTOS_P:    coma_  ATRIBUTO  ATRIBUTOS_P
                 |
                 ;
 
-ATRIBUTO:       id dos_puntos CONDICION_OR ;
+ATRIBUTO:       id dos_puntos CONDICION_TER ;
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*********+********** OBJETOS ++++*/
 /**
@@ -338,7 +337,7 @@ OB_ATRIBUTO:    id DIMENSION SUB_OBJETO
                 ;
 
 
-DIMENSION:      cor_abre CONDICION_OR cor_cierra DIMENSION
+DIMENSION:      cor_abre CONDICION_TER cor_cierra DIMENSION
                 |
                 ;
 
@@ -348,12 +347,12 @@ PARAMETROS_FUNCION:     par_abre ARGUMENTOS par_cierra
                         ;
 
 
-ARGUMENTOS:             CONDICION_OR ARGUMENTOS_P
+ARGUMENTOS:             CONDICION_TER ARGUMENTOS_P
                         |
                         ;
 
 
-ARGUMENTOS_P:           coma_  CONDICION_OR  ARGUMENTOS_P
+ARGUMENTOS_P:           coma_  CONDICION_TER  ARGUMENTOS_P
                         |
                         ;
 
@@ -361,7 +360,7 @@ ARGUMENTOS_P:           coma_  CONDICION_OR  ARGUMENTOS_P
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ASIGNACION++++++++++++*/
 
-ASIGNACION:             OBJETO_FUNCION OPERADOR_ASIGNACION CONDICION_OR;
+ASIGNACION:             OBJETO_FUNCION OPERADOR_ASIGNACION CONDICION_TER;
 
 OPERADOR_ASIGNACION:    igual
                         |menos_igual
@@ -403,7 +402,7 @@ TDIMENSION:             cor_abre cor_cierra TDIMENSION
 
 IF_SENTENCE:    llave_abre SENTENCIAS llave_cierra;
 
-IF_CONDICION:   par_abre CONDICION_OR par_cierra;
+IF_CONDICION:   par_abre CONDICION_TER par_cierra;
 
 IF_STATEMENT:   if_ IF_CONDICION IF_SENTENCE ;
 
@@ -432,7 +431,7 @@ DO_WHILE:   do_  IF_SENTENCE while_ IF_CONDICION ;
 
 SWITCH:     switch_ IF_CONDICION llave_abre CASOS llave_cierra ;
 
-CASOS:      case_ CONDICION_OR dos_puntos SENTENCIAS CASOS
+CASOS:      case_ CONDICION_TER dos_puntos SENTENCIAS CASOS
             |default_ dos_puntos SENTENCIAS
             |
             ;
@@ -451,10 +450,10 @@ FOR_LET:    FOR_TRADICIONAL
             |FOR_OF
             ;
 
-FOR_TRADICIONAL:    id igual CONDICION_OR punto_coma CONDICION_OR punto_coma FOR_TRADICIONAL_INC par_cierra IF_SENTENCE;
+FOR_TRADICIONAL:    id igual CONDICION_TER punto_coma CONDICION_TER punto_coma FOR_TRADICIONAL_INC par_cierra IF_SENTENCE;
 
 FOR_TRADICIONAL_INC:    ASIGNACION
-                        |CONDICION_OR
+                        |CONDICION_TER
                         ;
 
 FOR_OF:                 id of_ id par_cierra IF_SENTENCE;
@@ -472,7 +471,7 @@ CONTINUE:               continue_;
 RETURN:                 return_  RETURN_P
                         ;
 
-RETURN_P:               CONDICION_OR
+RETURN_P:               CONDICION_TER
                         |
                         ;
 
