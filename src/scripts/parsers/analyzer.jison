@@ -38,6 +38,7 @@
 "continue"					return	'continue_'
 "console"                   return  'console_'
 "log"                       return  'log_'
+"graficar_ts"               return  'graficar_ts'
 
 
 "<="					return	'menor_igual'
@@ -144,6 +145,7 @@ SENTENCIA:	    DEC_DECLAVAR punto_coma
                 |RETURN punto_coma
                 |OBJETO_FUNCION UNARIO punto_coma
                 |CONSOLA punto_coma
+                |GRAFICAR punto_coma
 				;
 
 
@@ -480,3 +482,5 @@ RETURN_P:               CONDICION_TER
 /****************************************************************************************************** CONSOLA  ***/
 
 CONSOLA:                console_ punto_ log_ PARAMETROS_FUNCION ;
+
+GRAFICAR:               graficar_ts par_abre par_cierra ;
