@@ -1,67 +1,31 @@
 
 var Nodo = (function (){
-    function Nodo(){
+
+
+    /**
+     * Constructor
+     * @param par1 => produccion/lexVal
+     * @param par2 => noProduccion/fila
+     * @param par3 => hijos/columna
+     * @param yystate Estando donde fue creado el nodo
+     * @param tipoDato tipoDato
+     * @constructor
+     */
+    function Nodo(par1, par2, par3, yystate, tipoDato){
         /*
         ATRIBUTOS
          */
-        this.produccion="";
-        this.noProduccion=-1;
-        this.columna=-1;
-        this.fila=-1;
-        this.hijos=[];
-        this.tipoToken="";
-
-
-        /*
-        GETTERS AND SETTERS
-         */
-        this.noProduccion = function(){
-            return this.noProduccion;
-        }
-
-        this.getTipoToken = function(){
-            return this.tipoToken;
-        }
-
-        this.getProduccion = function(){
-            return this.produccion;
-        }
-
-        this.getColumna = function() {
-            return this.columna;
-        }
-
-        this.setColumna = function (columna) {
-            this.columna = columna;
-        }
-
-        this.getFila = function() {
-            return this.fila;
-        }
-
-        this.setFila = function (fila) {
-            this.fila = fila;
-        }
-
-        this.hijo = function (index){
-            return hijos[index];
-        }
-
-        this.noHijos = function(){
-            return hijos.length;
-        }
-
-        this.tipoToken = function(){
-            return tipoToken;
-        }
-
-        this.tieneHijos = function(){
-            if(hijos!=null){
-                return true;
-            }
-            return false;
-        }
+        this.produccion=undefined==tipoDato?par1:undefined;
+        this.lexVal=undefined==tipoDato?undefined:par1;
+        this.noProduccion=undefined==tipoDato?par2:undefined;
+        this.fila=undefined==tipoDato?undefined:par2;
+        this.hijos=undefined==tipoDato?par3:undefined;
+        this.columna=undefined==tipoDato?undefined:par3;
+        this.tipoDato=tipoDato;
+        this.esTerminal=tipoDato!=undefined;
+        this.yystate = yystate;
     }
+
     return Nodo;
 }());
 Nodo["__class"] = "Nodo";

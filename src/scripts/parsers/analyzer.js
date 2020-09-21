@@ -72,30 +72,1242 @@
   }
 */
 var analyzer = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[2,3],$V1=[1,22],$V2=[1,31],$V3=[1,19],$V4=[1,20],$V5=[1,21],$V6=[1,34],$V7=[1,24],$V8=[1,25],$V9=[1,26],$Va=[1,27],$Vb=[1,28],$Vc=[1,29],$Vd=[1,30],$Ve=[1,32],$Vf=[1,33],$Vg=[5,29,125,126],$Vh=[5,24,25,29,35,38,42,117,121,122,123,125,126,127,136,137,138,140,142],$Vi=[2,78],$Vj=[1,48],$Vk=[1,46],$Vl=[1,47],$Vm=[1,49],$Vn=[1,50],$Vo=[1,54],$Vp=[2,127],$Vq=[1,59],$Vr=[1,61],$Vs=[1,63],$Vt=[1,87],$Vu=[1,78],$Vv=[1,76],$Vw=[1,77],$Vx=[1,79],$Vy=[1,80],$Vz=[1,81],$VA=[1,82],$VB=[1,86],$VC=[8,26,29,32,33,45,52,55,56,61,62,65,66,67,70,80,81,84,93,101,102,108,109,110,111,112,113],$VD=[2,99],$VE=[1,91],$VF=[1,92],$VG=[8,29,32,33,45,52,55,56,61,62,65,66,67,70,84,108,109,110,111,112,113],$VH=[25,27,43,62,72,73,74,75,76,82],$VI=[2,27],$VJ=[1,99],$VK=[8,32],$VL=[8,29,32,33,45,84],$VM=[8,29,32,33,45,56,84],$VN=[8,29,32,33,45,52,56,84],$VO=[8,29,32,33,45,52,55,56,84],$VP=[8,29,32,33,45,52,55,56,84,108,109,110,111,112,113],$VQ=[2,54],$VR=[1,131],$VS=[1,132],$VT=[8,29,32,33,45,52,55,56,61,62,84,108,109,110,111,112,113],$VU=[2,59],$VV=[1,134],$VW=[1,135],$VX=[1,136],$VY=[8,29,32,33,45,52,55,56,61,62,65,66,67,84,108,109,110,111,112,113],$VZ=[2,62],$V_=[1,138],$V$=[1,147],$V01=[8,26,29,32,33,45,52,55,56,61,62,65,66,67,70,80,81,84,101,102,108,109,110,111,112,113],$V11=[2,93],$V21=[1,149],$V31=[1,163],$V41=[1,160],$V51=[1,161],$V61=[1,162],$V71=[1,164],$V81=[1,167],$V91=[2,135],$Va1=[1,174],$Vb1=[1,175],$Vc1=[1,195],$Vd1=[2,83],$Ve1=[2,87],$Vf1=[1,198],$Vg1=[1,207],$Vh1=[2,104],$Vi1=[5,24,25,29,35,38,42,117,119,121,122,123,125,126,127,136,137,138,140,142],$Vj1=[8,26,27,29,32,45],$Vk1=[2,115],$Vl1=[1,214],$Vm1=[1,220],$Vn1=[2,38],$Vo1=[1,224],$Vp1=[2,22],$Vq1=[1,253],$Vr1=[29,32];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,19],$V1=[2,3],$V2=[1,23],$V3=[1,32],$V4=[1,20],$V5=[1,21],$V6=[1,22],$V7=[1,35],$V8=[1,25],$V9=[1,26],$Va=[1,27],$Vb=[1,28],$Vc=[1,29],$Vd=[1,30],$Ve=[1,31],$Vf=[1,33],$Vg=[1,34],$Vh=[5,29,125,126],$Vi=[2,5,24,25,29,35,38,42,117,121,122,123,125,126,127,136,137,138,140,142],$Vj=[2,79],$Vk=[1,49],$Vl=[1,47],$Vm=[1,48],$Vn=[1,50],$Vo=[1,51],$Vp=[1,55],$Vq=[2,128],$Vr=[1,60],$Vs=[1,62],$Vt=[1,64],$Vu=[1,88],$Vv=[1,79],$Vw=[1,77],$Vx=[1,78],$Vy=[1,80],$Vz=[1,81],$VA=[1,82],$VB=[1,83],$VC=[1,87],$VD=[8,26,29,32,33,45,52,55,56,61,62,65,66,67,70,80,81,84,93,101,102,108,109,110,111,112,113],$VE=[2,100],$VF=[1,92],$VG=[1,93],$VH=[8,29,32,33,45,52,55,56,61,62,65,66,67,70,84,108,109,110,111,112,113],$VI=[25,27,43,62,72,73,74,75,76,82],$VJ=[2,28],$VK=[1,100],$VL=[8,32],$VM=[8,29,32,33,45,84],$VN=[8,29,32,33,45,56,84],$VO=[8,29,32,33,45,52,56,84],$VP=[8,29,32,33,45,52,55,56,84],$VQ=[8,29,32,33,45,52,55,56,84,108,109,110,111,112,113],$VR=[2,55],$VS=[1,132],$VT=[1,133],$VU=[8,29,32,33,45,52,55,56,61,62,84,108,109,110,111,112,113],$VV=[2,60],$VW=[1,135],$VX=[1,136],$VY=[1,137],$VZ=[8,29,32,33,45,52,55,56,61,62,65,66,67,84,108,109,110,111,112,113],$V_=[2,63],$V$=[1,139],$V01=[1,148],$V11=[8,26,29,32,33,45,52,55,56,61,62,65,66,67,70,80,81,84,101,102,108,109,110,111,112,113],$V21=[2,94],$V31=[1,150],$V41=[1,164],$V51=[1,161],$V61=[1,162],$V71=[1,163],$V81=[1,165],$V91=[1,168],$Va1=[2,136],$Vb1=[1,175],$Vc1=[1,176],$Vd1=[1,196],$Ve1=[2,84],$Vf1=[2,88],$Vg1=[1,199],$Vh1=[1,208],$Vi1=[2,105],$Vj1=[2,5,24,25,29,35,38,42,117,119,121,122,123,125,126,127,136,137,138,140,142],$Vk1=[8,26,27,29,32,45],$Vl1=[2,116],$Vm1=[1,215],$Vn1=[1,221],$Vo1=[2,39],$Vp1=[1,225],$Vq1=[2,23],$Vr1=[1,254],$Vs1=[29,32];
 var parser = {trace: function trace () { },
 yy: {},
 symbols_: {"error":2,"S":3,"SENTENCIAS":4,"EOF":5,"SENTENCIA":6,"DEC_DECLAVAR":7,"punto_coma":8,"DEC_FUN":9,"DEC_TYPE":10,"ASIGNACION":11,"IF":12,"WHILE":13,"DO_WHILE":14,"SWITCH":15,"FOR":16,"BREAK":17,"CONTINUE":18,"RETURN":19,"OBJETO_FUNCION":20,"UNARIO":21,"CONSOLA":22,"GRAFICAR":23,"type_":24,"id":25,"igual":26,"llave_abre":27,"LIST_ATRIBUTOS":28,"llave_cierra":29,"DEC_ATRIBUTO":30,"LIST_ATRIBUTOS_P":31,"coma_":32,"dos_puntos":33,"TDATO":34,"const_":35,"D_VAR":36,"LIST_VAR":37,"let_":38,"D_VAR_P1":39,"CONDICION_TER":40,"D_VAR_P2":41,"function_":42,"par_abre":43,"LIST_PAR":44,"par_cierra":45,"PARAM":46,"LIST_PAR_P":47,"CONDICION_OR":48,"TERNARIO":49,"CONDICION_AND":50,"CONDICION_OR_P":51,"or_":52,"CONDICION":53,"CONDICION_AND_P":54,"and_":55,"interrogacion_":56,"E":57,"SIG_REL":58,"F":59,"E_P":60,"mas":61,"menos":62,"R":63,"F_P":64,"por":65,"div":66,"mod":67,"T":68,"R_P":69,"pot":70,"T_P":71,"not_":72,"num":73,"bool":74,"str":75,"null_":76,"ARREGLO":77,"OBJETO_TYPE":78,"NEGATIVO":79,"incremento_":80,"decremento_":81,"cor_abre":82,"ELEMENTOS":83,"cor_cierra":84,"ELEMENTOS_P":85,"ATRIBUTOS":86,"ATRIBUTO":87,"ATRIBUTOS_P":88,"OBJ_FUN_CUERPO":89,"PARAMETROS_FUNCION":90,"SUB_OBJETO":91,"DIMENSION":92,"punto_":93,"OB_ATRIBUTO":94,"push_":95,"pop_":96,"length_":97,"ARGUMENTOS":98,"ARGUMENTOS_P":99,"OPERADOR_ASIGNACION":100,"menos_igual":101,"mas_igual":102,"number_":103,"TDIMENSION":104,"string_":105,"boolean_":106,"void_":107,"menor":108,"mayor":109,"menor_igual":110,"mayor_igual":111,"igual_igual":112,"diferente":113,"IF_SENTENCE":114,"IF_CONDICION":115,"IF_STATEMENT":116,"if_":117,"ELSE_IF":118,"else_":119,"ELSE_IF_P":120,"while_":121,"do_":122,"switch_":123,"CASOS":124,"case_":125,"default_":126,"for_":127,"FOR_P":128,"FOR_LET":129,"FOR_CONST":130,"FOR_TRADICIONAL":131,"FOR_OF":132,"FOR_TRADICIONAL_INC":133,"of_":134,"in_":135,"break_":136,"continue_":137,"return_":138,"RETURN_P":139,"console_":140,"log_":141,"graficar_ts":142,"$accept":0,"$end":1},
 terminals_: {2:"error",5:"EOF",8:"punto_coma",24:"type_",25:"id",26:"igual",27:"llave_abre",29:"llave_cierra",32:"coma_",33:"dos_puntos",35:"const_",38:"let_",42:"function_",43:"par_abre",45:"par_cierra",52:"or_",55:"and_",56:"interrogacion_",61:"mas",62:"menos",65:"por",66:"div",67:"mod",70:"pot",72:"not_",73:"num",74:"bool",75:"str",76:"null_",80:"incremento_",81:"decremento_",82:"cor_abre",84:"cor_cierra",93:"punto_",95:"push_",96:"pop_",97:"length_",101:"menos_igual",102:"mas_igual",103:"number_",105:"string_",106:"boolean_",107:"void_",108:"menor",109:"mayor",110:"menor_igual",111:"mayor_igual",112:"igual_igual",113:"diferente",117:"if_",119:"else_",121:"while_",122:"do_",123:"switch_",125:"case_",126:"default_",127:"for_",134:"of_",135:"in_",136:"break_",137:"continue_",138:"return_",140:"console_",141:"log_",142:"graficar_ts"},
-productions_: [0,[3,2],[4,2],[4,0],[6,2],[6,1],[6,2],[6,2],[6,1],[6,1],[6,2],[6,1],[6,1],[6,2],[6,2],[6,2],[6,3],[6,2],[6,2],[10,6],[28,2],[31,3],[31,0],[30,3],[7,3],[7,3],[37,3],[37,0],[36,2],[39,2],[39,3],[39,0],[41,2],[41,0],[9,10],[44,2],[44,0],[47,3],[47,0],[46,3],[40,2],[48,2],[51,2],[51,0],[50,2],[54,2],[54,0],[49,4],[49,0],[53,3],[53,1],[57,2],[60,3],[60,3],[60,0],[59,2],[64,3],[64,3],[64,3],[64,0],[63,2],[69,3],[69,0],[68,1],[68,2],[68,2],[71,3],[71,1],[71,1],[71,1],[71,1],[71,1],[71,2],[71,1],[79,1],[79,0],[21,1],[21,1],[21,0],[77,3],[83,2],[83,0],[85,3],[85,0],[78,3],[86,2],[88,3],[88,0],[87,3],[20,2],[89,2],[89,2],[91,2],[91,0],[94,3],[94,3],[94,2],[94,1],[92,4],[92,0],[90,3],[98,2],[98,0],[99,3],[99,0],[11,3],[100,1],[100,1],[100,1],[34,2],[34,2],[34,2],[34,2],[34,1],[104,3],[104,0],[58,1],[58,1],[58,1],[58,1],[58,1],[58,1],[114,3],[115,3],[116,3],[12,2],[118,2],[118,0],[120,2],[120,1],[13,3],[14,4],[15,5],[124,5],[124,3],[124,0],[16,3],[128,2],[128,2],[129,1],[129,1],[131,9],[133,1],[133,1],[132,5],[130,5],[17,1],[18,1],[19,2],[139,1],[139,0],[22,4],[23,3]],
+productions_: [0,[3,2],[4,2],[4,0],[6,2],[6,1],[6,2],[6,2],[6,1],[6,1],[6,2],[6,1],[6,1],[6,2],[6,2],[6,2],[6,3],[6,2],[6,2],[6,1],[10,6],[28,2],[31,3],[31,0],[30,3],[7,3],[7,3],[37,3],[37,0],[36,2],[39,2],[39,3],[39,0],[41,2],[41,0],[9,10],[44,2],[44,0],[47,3],[47,0],[46,3],[40,2],[48,2],[51,2],[51,0],[50,2],[54,2],[54,0],[49,4],[49,0],[53,3],[53,1],[57,2],[60,3],[60,3],[60,0],[59,2],[64,3],[64,3],[64,3],[64,0],[63,2],[69,3],[69,0],[68,1],[68,2],[68,2],[71,3],[71,1],[71,1],[71,1],[71,1],[71,1],[71,2],[71,1],[79,1],[79,0],[21,1],[21,1],[21,0],[77,3],[83,2],[83,0],[85,3],[85,0],[78,3],[86,2],[88,3],[88,0],[87,3],[20,2],[89,2],[89,2],[91,2],[91,0],[94,3],[94,3],[94,2],[94,1],[92,4],[92,0],[90,3],[98,2],[98,0],[99,3],[99,0],[11,3],[100,1],[100,1],[100,1],[34,2],[34,2],[34,2],[34,2],[34,1],[104,3],[104,0],[58,1],[58,1],[58,1],[58,1],[58,1],[58,1],[114,3],[115,3],[116,3],[12,2],[118,2],[118,0],[120,2],[120,1],[13,3],[14,4],[15,5],[124,5],[124,3],[124,0],[16,3],[128,2],[128,2],[129,1],[129,1],[131,9],[133,1],[133,1],[132,5],[130,5],[17,1],[18,1],[19,2],[139,1],[139,0],[22,4],[23,3]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
-   
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo(EOF,undefined,undefined,yystate,DataType.UNTYPED));
+                    this.$=new Nodo("S=>SENTENCIAS EOF",0,hijos,yystate);
+                    _backEnd.root = this.$;
+                
 break;
-case 109: case 110: case 111: case 112:
-this.$=$$[$0-1];
+case 2:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("SENTENCIAS=>SENTENCIA SENTENCIAS",0,hijos,yystate);
+                
+break;
+case 3:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("SENTENCIAS=>",0,hijos,yystate);
+                
+break;
+case 4:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>DEC_DECLAVAR punto_coma",0,hijos,yystate);
+                
+break;
+case 5:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("SENTENCIA=>DEC_FUN",0,hijos,yystate);
+                
+break;
+case 6:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    this.$=new Nodo("SENTENCIA=>DEC_TYPE punto_coma",0,hijos,yystate);
+                
+break;
+case 7:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>ASIGNACION punto_coma",0,hijos,yystate);
+                
+break;
+case 8:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("SENTENCIA=>IF",0,hijos,yystate);
+                
+break;
+case 9:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("SENTENCIA=>WHILE",0,hijos,yystate);
+                
+break;
+case 10:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>DO_WHILE punto_coma",0,hijos,yystate);
+                
+break;
+case 11:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("SENTENCIA=>SWITCH",0,hijos,yystate);
+                
+break;
+case 12:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("SENTENCIA=>FOR",0,hijos,yystate);
+                
+break;
+case 13:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>BREAK punto_coma",0,hijos,yystate);
+                
+break;
+case 14:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>CONTINUE punto_coma",0,hijos,yystate);
+                
+break;
+case 15:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>RETURN punto_coma",0,hijos,yystate);
+                
+break;
+case 16:
+
+                    hijos = [];
+                    hijos.push($$[$0-2]);
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>OBJETO_FUNCION UNARIO punto_coma",0,hijos,yystate);
+                
+break;
+case 17:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>CONSOLA punto_coma",0,hijos,yystate);
+                
+break;
+case 18:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SENTENCIA=>GRAFICAR punto_coma",0,hijos,yystate);
+                
+break;
+case 19:
+
+                    hijos = [];
+                    hijos.push(new Nodo(ERROR,undefined,undefined,yystate,DataType.UNTYPED));
+                    this.$=new Nodo("SENTENCIA=>error",0,hijos,yystate);
+                    _backEnd.listaErrores.addError(this._$.last_line,this._$.last_column,ErrorType.SYNTACTIC,"No se esperaba: '"+yytext+"'.");
+                
+break;
+case 20:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-5],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-4],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("DEC_TYPE=>type_ id igual llave_abre LIST_ATRIBUTOS llave_cierra",0,hijos,yystate);
+                
+break;
+case 21:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("LIST_ATRIBUTOS=>DEC_ATRIBUTO  LIST_ATRIBUTOS_P",0,hijos,yystate);
+                
+break;
+case 22:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("LIST_ATRIBUTOS_P=>coma_ DEC_ATRIBUTO LIST_ATRIBUTOS_P",0,hijos,yystate);
+                
+break;
+case 23:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("LIST_ATRIBUTOS_P=>",0,hijos,yystate);
+                
+break;
+case 24:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("DEC_ATRIBUTO=>id dos_puntos TDATO",0,hijos,yystate);
+                
+break;
+case 25:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("DEC_DECLAVAR=>const_ D_VAR LIST_VAR",0,hijos,yystate);
+                
+break;
+case 26:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("DEC_DECLAVAR=>let_ D_VAR LIST_VAR",0,hijos,yystate);
+                
+break;
+case 27:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("LIST_VAR=>coma_  D_VAR  LIST_VAR",0,hijos,yystate);
+                
+break;
+case 28:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("LIST_VAR=>",0,hijos,yystate);
+                
+break;
+case 29:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("D_VAR=>id  D_VAR_P1",0,hijos,yystate);
+                
+break;
+case 30:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("D_VAR_P1=>igual CONDICION_TER",0,hijos,yystate);
+                
+break;
+case 31:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("D_VAR_P1=>dos_puntos TDATO D_VAR_P2",0,hijos,yystate);
+                
+break;
+case 32:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("D_VAR_P1=>",0,hijos,yystate);
+                
+break;
+case 33:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("D_VAR_P2=>igual CONDICION_TER",0,hijos,yystate);
+                
+break;
+case 34:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("D_VAR_P2=>",0,hijos,yystate);
+                
+break;
+case 35:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-9],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-8],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-7],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-6]);
+                    hijos.push(new Nodo($$[$0-5],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-4],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-3]);
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("DEC_FUN=>function_ id par_abre LIST_PAR par_cierra dos_puntos TDATO llave_abre SENTENCIAS llave_cierra",0,hijos,yystate);
+                
+break;
+case 36:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("LIST_PAR=>PARAM LIST_PAR_P ",0,hijos,yystate);
+                
+break;
+case 37:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("LIST_PAR=>",0,hijos,yystate);
+                
+break;
+case 38:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("LIST_PAR_P=>coma_ PARAM LIST_PAR_P",0,hijos,yystate);
+                
+break;
+case 39:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("LIST_PAR_P=>",0,hijos,yystate);
+                
+break;
+case 40:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("PARAM=>id  dos_puntos  TDATO",0,hijos,yystate);
+                
+break;
+case 41:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CONDICION_TER=>CONDICION_OR TERNARIO",0,hijos,yystate);
+                
+break;
+case 42:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CONDICION_OR=>CONDICION_AND CONDICION_OR_P",0,hijos,yystate);
+                
+break;
+case 44:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("",0,hijos,yystate);
+                
+break;
+case 45:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CONDICION_AND=>CONDICION CONDICION_AND_P",0,hijos,yystate);
+                
+break;
+case 46:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CONDICION_AND_P=>and_ CONDICION_AND",0,hijos,yystate);
+                
+break;
+case 47:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("CONDICION_AND_P=>",0,hijos,yystate);
+                
+break;
+case 48:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-2]);
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("TERNARIO=>interrogacion_ CONDICION_TER dos_puntos CONDICION_TER",0,hijos,yystate);
+                
+break;
+case 49:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("TERNARIO=>",0,hijos,yystate);
+                
+break;
+case 50:
+
+                    hijos = [];
+                    hijos.push($$[$0-2]);
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CONDICION=>E SIG_REL E",0,hijos,yystate);
+                
+break;
+case 51:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CONDICION=>E",0,hijos,yystate);
+                
+break;
+case 52:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("E=>F  E_P",0,hijos,yystate);
+                
+break;
+case 53:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("E_P=> mas F E_P",0,hijos,yystate);
+                
+break;
+case 54:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("E_P=>menos F E_P",0,hijos,yystate);
+                
+break;
+case 55:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("E_P=>",0,hijos,yystate);
+                
+break;
+case 56:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("F=>R  F_P",0,hijos,yystate);
+                
+break;
+case 57:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("F_P=>por R F_P",0,hijos,yystate);
+                
+break;
+case 58:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("F_P=>div R F_P",0,hijos,yystate);
+                
+break;
+case 59:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("F_P=>mod R F_P",0,hijos,yystate);
+                
+break;
+case 60:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("F_P=>",0,hijos,yystate);
+                
+break;
+case 61:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("R=>T R_P",0,hijos,yystate);
+                
+break;
+case 62:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("R_P=>pot T R_P",0,hijos,yystate);
+                
+break;
+case 63:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("R_P=>",0,hijos,yystate);
+                
+break;
+case 64:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("T=>T_P",0,hijos,yystate);
+                
+break;
+case 65:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.UNTYPED));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("T=>menos T_P",0,hijos,yystate);
+                
+break;
+case 66:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.UNTYPED));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("T=>not_ T_P",0,hijos,yystate);
+                
+break;
+case 67:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.UNTYPED));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.UNTYPED));
+                    this.$=new Nodo("T_P=>par_abre CONDICION_TER par_cierra",0,hijos,yystate);
+                
+break;
+case 68:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NUMBER,yystate));
+                    this.$=new Nodo("T_P=>num",0,hijos,yystate);
+                
+break;
+case 69:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.BOOLEAN));
+                    this.$=new Nodo("T_P=>bool",0,hijos,yystate);
+                
+break;
+case 70:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.STRING));
+                    this.$=new Nodo("T_P=>str",0,hijos,yystate);
+                
+break;
+case 71:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("T_P=>null_",0,hijos,yystate);
+                
+break;
+case 72:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("T_P=>OBJETO_FUNCION ARREGLO",0,hijos,yystate);
+                
+break;
+case 73:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("T_P=>OBJETO_FUNCION UNARIO",0,hijos,yystate);
+                
+break;
+case 74:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("T_P=>OBJETO_TYPE",0,hijos,yystate);
+                
+break;
+case 75:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("NEGATIVO=>menos",0,hijos,yystate);
+                
+break;
+case 76:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("NEGATIVO=>",0,hijos,yystate);
+                
+break;
+case 77:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("UNARIO=>incremento_",0,hijos,yystate);
+                
+break;
+case 78:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("UNARIO=>decremento_",0,hijos,yystate);
+                
+break;
+case 79:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("UNARIO=>",0,hijos,yystate);
+                
+break;
+case 80:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.UNTYPED));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.UNTYPED));
+                    this.$=new Nodo("ARREGLO=>cor_abre ELEMENTOS cor_cierra",0,hijos,yystate);
+                
+break;
+case 81:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ELEMENTOS=>CONDICION_TER ELEMENTOS_P",0,hijos,yystate);
+                
+break;
+case 82:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("ELEMENTOS=>",0,hijos,yystate);
+                
+break;
+case 83:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.UNTYPED));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ELEMENTOS_P=>coma_  CONDICION_TER  ELEMENTOS_P",0,hijos,yystate);
+                
+break;
+case 84:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("ELEMENTOS_P=>",0,hijos,yystate);
+                
+break;
+case 85:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("OBJETO_TYPE=>llave_abre  ATRIBUTOS  llave_cierra",0,hijos,yystate);
+                
+break;
+case 86:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ATRIBUTOS=>ATRIBUTOS_P",0,hijos,yystate);
+                
+break;
+case 87:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ATRIBUTOS_P=>coma_  ATRIBUTO  ATRIBUTOS_P",0,hijos,yystate);
+                
+break;
+case 88:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("ATRIBUTOS_P=>",0,hijos,yystate);
+                
+break;
+case 89:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ATRIBUTO=>id dos_puntos CONDICION_TER",0,hijos,yystate);
+                
+break;
+case 90:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("OBJETO_FUNCION=>id OBJ_FUN_CUERPO",0,hijos,yystate);
+                
+break;
+case 91:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("OBJ_FUN_CUERPO=>PARAMETROS_FUNCION SUB_OBJETO",0,hijos,yystate);
+                
+break;
+case 92:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("OBJ_FUN_CUERPO=>DIMENSION SUB_OBJETO",0,hijos,yystate);
+                
+break;
+case 93:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("SUB_OBJETO=>punto_  OB_ATRIBUTO",0,hijos,yystate);
+                
+break;
+case 94:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("SUB_OBJETO=>",0,hijos,yystate);
+                
+break;
+case 95:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("OB_ATRIBUTO=>id DIMENSION SUB_OBJETO",0,hijos,yystate);
+                
+break;
+case 96:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("OB_ATRIBUTO=>push_ PARAMETROS_FUNCION SUB_OBJETO",0,hijos,yystate);
+                
+break;
+case 97:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("OB_ATRIBUTO=>pop_  SUB_OBJETO",0,hijos,yystate);
+                
+break;
+case 98:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("OB_ATRIBUTO=>length_",0,hijos,yystate);
+                
+break;
+case 99:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-2]);
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("DIMENSION=>cor_abre CONDICION_TER cor_cierra DIMENSION",0,hijos,yystate);
+                
+break;
+case 100:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("DIMENSION=>",0,hijos,yystate);
+                
+break;
+case 101:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("PARAMETROS_FUNCION=>par_abre ARGUMENTOS par_cierra",0,hijos,yystate);
+                
+break;
+case 102:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ARGUMENTOS=>CONDICION_TER ARGUMENTOS_P",0,hijos,yystate);
+                
+break;
+case 103:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("ARGUMENTOS=>",0,hijos,yystate);
+                
+break;
+case 104:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ARGUMENTOS_P=>coma_  CONDICION_TER  ARGUMENTOS_P",0,hijos,yystate);
+                
+break;
+case 105:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("ARGUMENTOS_P=>",0,hijos,yystate);
+                
+break;
+case 106:
+
+                    hijos = [];
+                    hijos.push($$[$0-2]);
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ASIGNACION=>OBJETO_FUNCION OPERADOR_ASIGNACION CONDICION_TER",0,hijos,yystate);
+                
+break;
+case 107:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("OPERADOR_ASIGNACION=>igual",0,hijos,yystate);
+                
+break;
+case 108:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("OPERADOR_ASIGNACION=>menos_igual",0,hijos,yystate);
+                
+break;
+case 109:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("OPERADOR_ASIGNACION=>mas_igual",0,hijos,yystate);
+                
+break;
+case 110:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("TDATO=>number_ TDIMENSION",0,hijos,yystate);
+                
+break;
+case 111:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("TDATO=>string_ TDIMENSION",0,hijos,yystate);
+                
+break;
+case 112:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("TDATO=>boolean_ TDIMENSION",0,hijos,yystate);
+                
 break;
 case 113:
-this.$=$$[$0];
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("TDATO=>id TDIMENSION",0,hijos,yystate);
+                
+break;
+case 114:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("TDATO=>void_",0,hijos,yystate);
+                
+break;
+case 115:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("TDIMENSION=>cor_abre cor_cierra TDIMENSION",0,hijos,yystate);
+                
+break;
+case 116:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("TDIMENSION=>",0,hijos,yystate);
+                
+break;
+case 117:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SIG_REL=>menor",0,hijos,yystate);
+                
+break;
+case 118:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SIG_REL=>mayor",0,hijos,yystate);
+                
+break;
+case 119:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SIG_REL=>menor_igual",0,hijos,yystate);
+                
+break;
+case 120:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SIG_REL=>mayor_igual",0,hijos,yystate);
+                
+break;
+case 121:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SIG_REL=>igual_igual",0,hijos,yystate);
+                
+break;
+case 122:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SIG_REL=>diferente",0,hijos,yystate);
+                
+break;
+case 123:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("IF_SENTENCE=>llave_abre SENTENCIAS llave_cierra",0,hijos,yystate);
+                
+break;
+case 124:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("IF_CONDICION=>par_abre CONDICION_TER par_cierra",0,hijos,yystate);
+                
+break;
+case 125:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("IF_STATEMENT=>if_ IF_CONDICION IF_SENTENCE ",0,hijos,yystate);
+                
+break;
+case 126:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("IF:=>IF_STATEMENT ELSE_IF ",0,hijos,yystate);
+                
+break;
+case 127:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ELSE_IF=>else_ ELSE_IF_P",0,hijos,yystate);
+                
+break;
+case 128:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("ELSE_IF=>",0,hijos,yystate);
+                
+break;
+case 129:
+
+                    hijos = [];
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ELSE_IF_P=>IF_STATEMENT ELSE_IF",0,hijos,yystate);
+                
+break;
+case 130:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("ELSE_IF_P=>IF_SENTENCE",0,hijos,yystate);
+                
+break;
+case 131:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("WHILE=>while_ IF_CONDICION IF_SENTENCE",0,hijos,yystate);
+                
+break;
+case 132:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-2]);
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("DO_WHILE=>do_  IF_SENTENCE while_ IF_CONDICION",0,hijos,yystate);
+                
+break;
+case 133:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-4],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-3]);
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("SWITCH=>switch_ IF_CONDICION llave_abre CASOS llave_cierra",0,hijos,yystate);
+                
+break;
+case 134:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-4],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-3]);
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-1]);
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CASOS=>case_ CONDICION_TER dos_puntos SENTENCIAS CASOS",0,hijos,yystate);
+                
+break;
+case 135:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CASOS=>default_ dos_puntos SENTENCIAS",0,hijos,yystate);
+                
+break;
+case 136:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("CASOS=>",0,hijos,yystate);
+                
+break;
+case 137:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR=>for_ par_abre FOR_P",0,hijos,yystate);
+                
+break;
+case 138:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_P=>let_ FOR_LET",0,hijos,yystate);
+                
+break;
+case 139:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_P=>const_ FOR_CONST",0,hijos,yystate);
+                
+break;
+case 140:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_LET=>FOR_TRADICIONAL",0,hijos,yystate);
+                
+break;
+case 141:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_LET=>FOR_OF",0,hijos,yystate);
+                
+break;
+case 142:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-8],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-7],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-6]);
+                    hijos.push(new Nodo($$[$0-5],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-4]);
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0-2]);
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_TRADICIONAL=>id igual CONDICION_TER punto_coma CONDICION_TER punto_coma FOR_TRADICIONAL_INC par_cierra IF_SENTENCE",0,hijos,yystate);
+                
+break;
+case 143: case 144:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_TRADICIONAL_INC=>ASIGNACION",0,hijos,yystate);
+                
+break;
+case 145:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-4],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_OF=>id of_ id par_cierra IF_SENTENCE",0,hijos,yystate);
+                
+break;
+case 146:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-4],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("FOR_CONST=>id in_ id par_cierra IF_SENTENCE",0,hijos,yystate);
+                
+break;
+case 147:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("BREAK=>break_",0,hijos,yystate);
+                
+break;
+case 148:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("CONTINUE=>continue_",0,hijos,yystate);
+                
+break;
+case 149:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("RETURN=>return_  RETURN_P",0,hijos,yystate);
+                
+break;
+case 150:
+
+                    hijos = [];
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("RETURN_P=>CONDICION_TER",0,hijos,yystate);
+                
+break;
+case 151:
+
+                    hijos = [];
+                    hijos.push(new Nodo(EPSILON,undefined,undefined,yystate,DataType.EPSILON));
+                    this.$=new Nodo("RETURN_P=>",0,hijos,yystate);
+                
+break;
+case 152:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-3],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push($$[$0]);
+                    this.$=new Nodo("CONSOLA=>console_ punto_ log_ PARAMETROS_FUNCION",0,hijos,yystate);
+                
+break;
+case 153:
+
+                    hijos = [];
+                    hijos.push(new Nodo($$[$0-2],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0-1],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    hijos.push(new Nodo($$[$0],this._$.last_line,this._$.last_column,yystate,DataType.NULL));
+                    this.$=new Nodo("GRAFICAR=>graficar_ts par_abre par_cierra",0,hijos,yystate);
+                
 break;
 }
 },
-table: [{3:1,4:2,5:$V0,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V1,25:$V2,35:$V3,38:$V4,42:$V5,116:23,117:$V6,121:$V7,122:$V8,123:$V9,127:$Va,136:$Vb,137:$Vc,138:$Vd,140:$Ve,142:$Vf},{1:[3]},{5:[1,35]},o($Vg,$V0,{6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,116:23,4:36,24:$V1,25:$V2,35:$V3,38:$V4,42:$V5,117:$V6,121:$V7,122:$V8,123:$V9,127:$Va,136:$Vb,137:$Vc,138:$Vd,140:$Ve,142:$Vf}),{8:[1,37]},o($Vh,[2,5]),{8:[1,38]},{8:[1,39]},o($Vh,[2,8]),o($Vh,[2,9]),{8:[1,40]},o($Vh,[2,11]),o($Vh,[2,12]),{8:[1,41]},{8:[1,42]},{8:[1,43]},{8:$Vi,21:44,26:$Vj,80:$Vk,81:$Vl,100:45,101:$Vm,102:$Vn},{8:[1,51]},{8:[1,52]},{25:$Vo,36:53},{25:$Vo,36:55},{25:[1,56]},{25:[1,57]},o($Vh,$Vp,{118:58,119:$Vq}),{43:$Vr,115:60},{27:$Vs,114:62},{43:$Vr,115:64},{43:[1,65]},{8:[2,146]},{8:[2,147]},{8:[2,150],20:84,25:$V2,27:$Vt,40:67,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB,139:66},o($VC,$VD,{89:88,90:89,92:90,43:$VE,82:$VF}),{93:[1,93]},{43:[1,94]},{43:$Vr,115:95},{1:[2,1]},o($Vg,[2,2]),o($Vh,[2,4]),o($Vh,[2,6]),o($Vh,[2,7]),o($Vh,[2,10]),o($Vh,[2,13]),o($Vh,[2,14]),o($Vh,[2,15]),{8:[1,96]},{20:84,25:$V2,27:$Vt,40:97,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VG,[2,76]),o($VG,[2,77]),o($VH,[2,106]),o($VH,[2,107]),o($VH,[2,108]),o($Vh,[2,17]),o($Vh,[2,18]),{8:$VI,32:$VJ,37:98},o($VK,[2,31],{39:100,26:[1,101],33:[1,102]}),{8:$VI,32:$VJ,37:103},{43:[1,104]},{26:[1,105]},o($Vh,[2,125]),{27:$Vs,114:108,116:107,117:$V6,120:106},{27:$Vs,114:109},{20:84,25:$V2,27:$Vt,40:110,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{121:[1,111]},{4:112,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V1,25:$V2,29:$V0,35:$V3,38:$V4,42:$V5,116:23,117:$V6,121:$V7,122:$V8,123:$V9,127:$Va,136:$Vb,137:$Vc,138:$Vd,140:$Ve,142:$Vf},{27:[1,113]},{35:[1,116],38:[1,115],128:114},{8:[2,148]},{8:[2,149]},o($VL,[2,48],{49:117,56:[1,118]}),o($VM,[2,43],{51:119,52:[1,120]}),o($VN,[2,46],{54:121,55:[1,122]}),o($VO,[2,50],{58:123,108:[1,124],109:[1,125],110:[1,126],111:[1,127],112:[1,128],113:[1,129]}),o($VP,$VQ,{60:130,61:$VR,62:$VS}),o($VT,$VU,{64:133,65:$VV,66:$VW,67:$VX}),o($VY,$VZ,{69:137,70:$V_}),o($VG,[2,63]),{20:84,25:$V2,27:$Vt,43:$Vu,71:139,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{20:84,25:$V2,27:$Vt,43:$Vu,71:140,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{20:84,25:$V2,27:$Vt,40:141,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VG,[2,67]),o($VG,[2,68]),o($VG,[2,69]),o($VG,[2,70]),o($VG,[2,71]),o($VG,$Vi,{21:142,80:$Vk,81:$Vl}),o($VG,[2,73]),{20:84,25:$V2,27:$Vt,40:144,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB,83:143,84:[2,81]},{25:$V$,86:145,87:146},o($V01,[2,89]),o($V01,$V11,{91:148,93:$V21}),o($V01,$V11,{91:150,93:$V21}),{20:84,25:$V2,27:$Vt,40:152,43:$Vu,45:[2,102],48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB,98:151},{20:84,25:$V2,27:$Vt,40:153,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{141:[1,154]},{45:[1,155]},{27:$Vs,114:156},o($Vh,[2,16]),o([8,45],[2,105]),{8:[2,24]},{25:$Vo,36:157},o($VK,[2,28]),{20:84,25:$V2,27:$Vt,40:158,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{25:$V31,34:159,103:$V41,105:$V51,106:$V61,107:$V71},{8:[2,25]},{25:$V81,44:165,45:[2,36],46:166},{27:[1,168]},o($Vh,[2,126]),o($Vh,$Vp,{118:169,119:$Vq}),o($Vh,[2,129]),o($Vh,[2,130]),{45:[1,170]},{43:$Vr,115:171},{29:[1,172]},{29:$V91,124:173,125:$Va1,126:$Vb1},o($Vh,[2,136]),{25:[1,179],129:176,131:177,132:178},{25:[1,181],130:180},o($VL,[2,40]),{20:84,25:$V2,27:$Vt,40:182,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VM,[2,41]),{20:84,25:$V2,27:$Vt,43:$Vu,48:183,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VN,[2,44]),{20:84,25:$V2,27:$Vt,43:$Vu,50:184,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{20:84,25:$V2,27:$Vt,43:$Vu,57:185,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VH,[2,116]),o($VH,[2,117]),o($VH,[2,118]),o($VH,[2,119]),o($VH,[2,120]),o($VH,[2,121]),o($VP,[2,51]),{20:84,25:$V2,27:$Vt,43:$Vu,59:186,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{20:84,25:$V2,27:$Vt,43:$Vu,59:187,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VT,[2,55]),{20:84,25:$V2,27:$Vt,43:$Vu,62:$Vv,63:188,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{20:84,25:$V2,27:$Vt,43:$Vu,62:$Vv,63:189,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{20:84,25:$V2,27:$Vt,43:$Vu,62:$Vv,63:190,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VY,[2,60]),{20:84,25:$V2,27:$Vt,43:$Vu,62:$Vv,68:191,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VG,[2,64]),o($VG,[2,65]),{45:[1,192]},o($VG,[2,72]),{84:[1,193]},{32:$Vc1,84:$Vd1,85:194},{29:[1,196]},{29:$Ve1,32:$Vf1,88:197},{33:[1,199]},o($V01,[2,90]),{25:[1,201],94:200,95:[1,202],96:[1,203],97:[1,204]},o($V01,[2,91]),{45:[1,205]},{32:$Vg1,45:$Vh1,99:206},{84:[1,208]},{43:$VE,90:209},{8:[2,152]},o($Vi1,[2,124]),{8:$VI,32:$VJ,37:210},o($VK,[2,29]),o($VK,[2,33],{41:211,26:[1,212]}),o($Vj1,$Vk1,{104:213,82:$Vl1}),o($Vj1,$Vk1,{104:215,82:$Vl1}),o($Vj1,$Vk1,{104:216,82:$Vl1}),o($Vj1,$Vk1,{104:217,82:$Vl1}),o($Vj1,[2,113]),{45:[1,218]},{32:$Vm1,45:$Vn1,47:219},{33:[1,221]},{25:$Vo1,28:222,30:223},o($Vh,[2,128]),o([8,27],[2,123]),{8:[2,131]},o($Vi1,[2,122]),{29:[1,225]},{20:84,25:$V2,27:$Vt,40:226,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{33:[1,227]},o($Vh,[2,137]),o($Vh,[2,139]),o($Vh,[2,140]),{26:[1,228],134:[1,229]},o($Vh,[2,138]),{135:[1,230]},{33:[1,231]},o($VM,[2,42]),o($VN,[2,45]),o($VO,[2,49]),o($VP,$VQ,{60:232,61:$VR,62:$VS}),o($VP,$VQ,{60:233,61:$VR,62:$VS}),o($VT,$VU,{64:234,65:$VV,66:$VW,67:$VX}),o($VT,$VU,{64:235,65:$VV,66:$VW,67:$VX}),o($VT,$VU,{64:236,65:$VV,66:$VW,67:$VX}),o($VY,$VZ,{69:237,70:$V_}),o($VG,[2,66]),o($VG,[2,79]),{84:[2,80]},{20:84,25:$V2,27:$Vt,40:238,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VG,[2,84]),{29:[2,85]},{25:$V$,87:239},{20:84,25:$V2,27:$Vt,40:240,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($V01,[2,92]),o($VC,$VD,{92:241,82:$VF}),{43:$VE,90:242},o($V01,$V11,{91:243,93:$V21}),o($V01,[2,97]),o($VC,[2,100]),{45:[2,101]},{20:84,25:$V2,27:$Vt,40:244,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VC,$VD,{92:245,82:$VF}),{8:[2,151]},{8:[2,26]},o($VK,[2,30]),{20:84,25:$V2,27:$Vt,40:246,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($Vj1,[2,109]),{84:[1,247]},o($Vj1,[2,110]),o($Vj1,[2,111]),o($Vj1,[2,112]),{33:[1,248]},{45:[2,35]},{25:$V81,46:249},{25:$V31,34:250,103:$V41,105:$V51,106:$V61,107:$V71},{29:[1,251]},{29:$Vp1,31:252,32:$Vq1},{33:[1,254]},o($Vh,[2,132]),{33:[1,255]},{4:256,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V1,25:$V2,29:$V0,35:$V3,38:$V4,42:$V5,116:23,117:$V6,121:$V7,122:$V8,123:$V9,127:$Va,136:$Vb,137:$Vc,138:$Vd,140:$Ve,142:$Vf},{20:84,25:$V2,27:$Vt,40:257,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{25:[1,258]},{25:[1,259]},{20:84,25:$V2,27:$Vt,40:260,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},o($VP,[2,52]),o($VP,[2,53]),o($VT,[2,56]),o($VT,[2,57]),o($VT,[2,58]),o($VY,[2,61]),{32:$Vc1,84:$Vd1,85:261},{29:$Ve1,32:$Vf1,88:262},o($Vr1,[2,88]),o($V01,$V11,{91:263,93:$V21}),o($V01,$V11,{91:264,93:$V21}),o($V01,[2,96]),{32:$Vg1,45:$Vh1,99:265},o($VC,[2,98]),o($VK,[2,32]),o($Vj1,$Vk1,{104:266,82:$Vl1}),{25:$V31,34:267,103:$V41,105:$V51,106:$V61,107:$V71},{32:$Vm1,45:$Vn1,47:268},o([32,45],[2,39]),{8:[2,19]},{29:[2,20]},{25:$Vo1,30:269},{25:$V31,34:270,103:$V41,105:$V51,106:$V61,107:$V71},o([29,125,126],$V0,{6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,116:23,4:271,24:$V1,25:$V2,35:$V3,38:$V4,42:$V5,117:$V6,121:$V7,122:$V8,123:$V9,127:$Va,136:$Vb,137:$Vc,138:$Vd,140:$Ve,142:$Vf}),{29:[2,134]},{8:[1,272]},{45:[1,273]},{45:[1,274]},o($VL,[2,47]),{84:[2,82]},{29:[2,86]},o($V01,[2,94]),o($V01,[2,95]),{45:[2,103]},o($Vj1,[2,114]),{27:[1,275]},{45:[2,37]},{29:$Vp1,31:276,32:$Vq1},o($Vr1,[2,23]),{29:$V91,124:277,125:$Va1,126:$Vb1},{20:84,25:$V2,27:$Vt,40:278,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB},{27:$Vs,114:279},{27:$Vs,114:280},{4:281,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V1,25:$V2,29:$V0,35:$V3,38:$V4,42:$V5,116:23,117:$V6,121:$V7,122:$V8,123:$V9,127:$Va,136:$Vb,137:$Vc,138:$Vd,140:$Ve,142:$Vf},{29:[2,21]},{29:[2,133]},{8:[1,282]},o($Vh,[2,144]),o($Vh,[2,145]),{29:[1,283]},{11:285,20:287,25:$V2,27:$Vt,40:286,43:$Vu,48:68,50:69,53:70,57:71,59:72,62:$Vv,63:73,68:74,71:75,72:$Vw,73:$Vx,74:$Vy,75:$Vz,76:$VA,77:83,78:85,82:$VB,133:284},o($Vh,[2,34]),{45:[1,288]},{45:[2,142]},{45:[2,143]},o([45,52,55,56,61,62,65,66,67,70,108,109,110,111,112,113],$Vi,{100:45,21:142,26:$Vj,80:$Vk,81:$Vl,101:$Vm,102:$Vn}),{27:$Vs,114:289},o($Vh,[2,141])],
-defaultActions: {28:[2,146],29:[2,147],35:[2,1],66:[2,148],67:[2,149],98:[2,24],103:[2,25],155:[2,152],171:[2,131],194:[2,80],197:[2,85],206:[2,101],209:[2,151],210:[2,26],219:[2,35],251:[2,19],252:[2,20],256:[2,134],261:[2,82],262:[2,86],265:[2,103],268:[2,37],276:[2,21],277:[2,133],285:[2,142],286:[2,143]},
+table: [{2:$V0,3:1,4:2,5:$V1,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V2,25:$V3,35:$V4,38:$V5,42:$V6,116:24,117:$V7,121:$V8,122:$V9,123:$Va,127:$Vb,136:$Vc,137:$Vd,138:$Ve,140:$Vf,142:$Vg},{1:[3]},{5:[1,36]},o($Vh,$V1,{6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,116:24,4:37,2:$V0,24:$V2,25:$V3,35:$V4,38:$V5,42:$V6,117:$V7,121:$V8,122:$V9,123:$Va,127:$Vb,136:$Vc,137:$Vd,138:$Ve,140:$Vf,142:$Vg}),{8:[1,38]},o($Vi,[2,5]),{8:[1,39]},{8:[1,40]},o($Vi,[2,8]),o($Vi,[2,9]),{8:[1,41]},o($Vi,[2,11]),o($Vi,[2,12]),{8:[1,42]},{8:[1,43]},{8:[1,44]},{8:$Vj,21:45,26:$Vk,80:$Vl,81:$Vm,100:46,101:$Vn,102:$Vo},{8:[1,52]},{8:[1,53]},o($Vi,[2,19]),{25:$Vp,36:54},{25:$Vp,36:56},{25:[1,57]},{25:[1,58]},o($Vi,$Vq,{118:59,119:$Vr}),{43:$Vs,115:61},{27:$Vt,114:63},{43:$Vs,115:65},{43:[1,66]},{8:[2,147]},{8:[2,148]},{8:[2,151],20:85,25:$V3,27:$Vu,40:68,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC,139:67},o($VD,$VE,{89:89,90:90,92:91,43:$VF,82:$VG}),{93:[1,94]},{43:[1,95]},{43:$Vs,115:96},{1:[2,1]},o($Vh,[2,2]),o($Vi,[2,4]),o($Vi,[2,6]),o($Vi,[2,7]),o($Vi,[2,10]),o($Vi,[2,13]),o($Vi,[2,14]),o($Vi,[2,15]),{8:[1,97]},{20:85,25:$V3,27:$Vu,40:98,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VH,[2,77]),o($VH,[2,78]),o($VI,[2,107]),o($VI,[2,108]),o($VI,[2,109]),o($Vi,[2,17]),o($Vi,[2,18]),{8:$VJ,32:$VK,37:99},o($VL,[2,32],{39:101,26:[1,102],33:[1,103]}),{8:$VJ,32:$VK,37:104},{43:[1,105]},{26:[1,106]},o($Vi,[2,126]),{27:$Vt,114:109,116:108,117:$V7,120:107},{27:$Vt,114:110},{20:85,25:$V3,27:$Vu,40:111,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{121:[1,112]},{2:$V0,4:113,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V2,25:$V3,29:$V1,35:$V4,38:$V5,42:$V6,116:24,117:$V7,121:$V8,122:$V9,123:$Va,127:$Vb,136:$Vc,137:$Vd,138:$Ve,140:$Vf,142:$Vg},{27:[1,114]},{35:[1,117],38:[1,116],128:115},{8:[2,149]},{8:[2,150]},o($VM,[2,49],{49:118,56:[1,119]}),o($VN,[2,44],{51:120,52:[1,121]}),o($VO,[2,47],{54:122,55:[1,123]}),o($VP,[2,51],{58:124,108:[1,125],109:[1,126],110:[1,127],111:[1,128],112:[1,129],113:[1,130]}),o($VQ,$VR,{60:131,61:$VS,62:$VT}),o($VU,$VV,{64:134,65:$VW,66:$VX,67:$VY}),o($VZ,$V_,{69:138,70:$V$}),o($VH,[2,64]),{20:85,25:$V3,27:$Vu,43:$Vv,71:140,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{20:85,25:$V3,27:$Vu,43:$Vv,71:141,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{20:85,25:$V3,27:$Vu,40:142,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VH,[2,68]),o($VH,[2,69]),o($VH,[2,70]),o($VH,[2,71]),o($VH,[2,72]),o($VH,$Vj,{21:143,80:$Vl,81:$Vm}),o($VH,[2,74]),{20:85,25:$V3,27:$Vu,40:145,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC,83:144,84:[2,82]},{25:$V01,86:146,87:147},o($V11,[2,90]),o($V11,$V21,{91:149,93:$V31}),o($V11,$V21,{91:151,93:$V31}),{20:85,25:$V3,27:$Vu,40:153,43:$Vv,45:[2,103],48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC,98:152},{20:85,25:$V3,27:$Vu,40:154,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{141:[1,155]},{45:[1,156]},{27:$Vt,114:157},o($Vi,[2,16]),o([8,45],[2,106]),{8:[2,25]},{25:$Vp,36:158},o($VL,[2,29]),{20:85,25:$V3,27:$Vu,40:159,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{25:$V41,34:160,103:$V51,105:$V61,106:$V71,107:$V81},{8:[2,26]},{25:$V91,44:166,45:[2,37],46:167},{27:[1,169]},o($Vi,[2,127]),o($Vi,$Vq,{118:170,119:$Vr}),o($Vi,[2,130]),o($Vi,[2,131]),{45:[1,171]},{43:$Vs,115:172},{29:[1,173]},{29:$Va1,124:174,125:$Vb1,126:$Vc1},o($Vi,[2,137]),{25:[1,180],129:177,131:178,132:179},{25:[1,182],130:181},o($VM,[2,41]),{20:85,25:$V3,27:$Vu,40:183,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VN,[2,42]),{20:85,25:$V3,27:$Vu,43:$Vv,48:184,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VO,[2,45]),{20:85,25:$V3,27:$Vu,43:$Vv,50:185,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{20:85,25:$V3,27:$Vu,43:$Vv,57:186,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VI,[2,117]),o($VI,[2,118]),o($VI,[2,119]),o($VI,[2,120]),o($VI,[2,121]),o($VI,[2,122]),o($VQ,[2,52]),{20:85,25:$V3,27:$Vu,43:$Vv,59:187,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{20:85,25:$V3,27:$Vu,43:$Vv,59:188,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VU,[2,56]),{20:85,25:$V3,27:$Vu,43:$Vv,62:$Vw,63:189,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{20:85,25:$V3,27:$Vu,43:$Vv,62:$Vw,63:190,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{20:85,25:$V3,27:$Vu,43:$Vv,62:$Vw,63:191,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VZ,[2,61]),{20:85,25:$V3,27:$Vu,43:$Vv,62:$Vw,68:192,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VH,[2,65]),o($VH,[2,66]),{45:[1,193]},o($VH,[2,73]),{84:[1,194]},{32:$Vd1,84:$Ve1,85:195},{29:[1,197]},{29:$Vf1,32:$Vg1,88:198},{33:[1,200]},o($V11,[2,91]),{25:[1,202],94:201,95:[1,203],96:[1,204],97:[1,205]},o($V11,[2,92]),{45:[1,206]},{32:$Vh1,45:$Vi1,99:207},{84:[1,209]},{43:$VF,90:210},{8:[2,153]},o($Vj1,[2,125]),{8:$VJ,32:$VK,37:211},o($VL,[2,30]),o($VL,[2,34],{41:212,26:[1,213]}),o($Vk1,$Vl1,{104:214,82:$Vm1}),o($Vk1,$Vl1,{104:216,82:$Vm1}),o($Vk1,$Vl1,{104:217,82:$Vm1}),o($Vk1,$Vl1,{104:218,82:$Vm1}),o($Vk1,[2,114]),{45:[1,219]},{32:$Vn1,45:$Vo1,47:220},{33:[1,222]},{25:$Vp1,28:223,30:224},o($Vi,[2,129]),o([8,27],[2,124]),{8:[2,132]},o($Vj1,[2,123]),{29:[1,226]},{20:85,25:$V3,27:$Vu,40:227,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{33:[1,228]},o($Vi,[2,138]),o($Vi,[2,140]),o($Vi,[2,141]),{26:[1,229],134:[1,230]},o($Vi,[2,139]),{135:[1,231]},{33:[1,232]},o($VN,[2,43]),o($VO,[2,46]),o($VP,[2,50]),o($VQ,$VR,{60:233,61:$VS,62:$VT}),o($VQ,$VR,{60:234,61:$VS,62:$VT}),o($VU,$VV,{64:235,65:$VW,66:$VX,67:$VY}),o($VU,$VV,{64:236,65:$VW,66:$VX,67:$VY}),o($VU,$VV,{64:237,65:$VW,66:$VX,67:$VY}),o($VZ,$V_,{69:238,70:$V$}),o($VH,[2,67]),o($VH,[2,80]),{84:[2,81]},{20:85,25:$V3,27:$Vu,40:239,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VH,[2,85]),{29:[2,86]},{25:$V01,87:240},{20:85,25:$V3,27:$Vu,40:241,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($V11,[2,93]),o($VD,$VE,{92:242,82:$VG}),{43:$VF,90:243},o($V11,$V21,{91:244,93:$V31}),o($V11,[2,98]),o($VD,[2,101]),{45:[2,102]},{20:85,25:$V3,27:$Vu,40:245,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VD,$VE,{92:246,82:$VG}),{8:[2,152]},{8:[2,27]},o($VL,[2,31]),{20:85,25:$V3,27:$Vu,40:247,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($Vk1,[2,110]),{84:[1,248]},o($Vk1,[2,111]),o($Vk1,[2,112]),o($Vk1,[2,113]),{33:[1,249]},{45:[2,36]},{25:$V91,46:250},{25:$V41,34:251,103:$V51,105:$V61,106:$V71,107:$V81},{29:[1,252]},{29:$Vq1,31:253,32:$Vr1},{33:[1,255]},o($Vi,[2,133]),{33:[1,256]},{2:$V0,4:257,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V2,25:$V3,29:$V1,35:$V4,38:$V5,42:$V6,116:24,117:$V7,121:$V8,122:$V9,123:$Va,127:$Vb,136:$Vc,137:$Vd,138:$Ve,140:$Vf,142:$Vg},{20:85,25:$V3,27:$Vu,40:258,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{25:[1,259]},{25:[1,260]},{20:85,25:$V3,27:$Vu,40:261,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},o($VQ,[2,53]),o($VQ,[2,54]),o($VU,[2,57]),o($VU,[2,58]),o($VU,[2,59]),o($VZ,[2,62]),{32:$Vd1,84:$Ve1,85:262},{29:$Vf1,32:$Vg1,88:263},o($Vs1,[2,89]),o($V11,$V21,{91:264,93:$V31}),o($V11,$V21,{91:265,93:$V31}),o($V11,[2,97]),{32:$Vh1,45:$Vi1,99:266},o($VD,[2,99]),o($VL,[2,33]),o($Vk1,$Vl1,{104:267,82:$Vm1}),{25:$V41,34:268,103:$V51,105:$V61,106:$V71,107:$V81},{32:$Vn1,45:$Vo1,47:269},o([32,45],[2,40]),{8:[2,20]},{29:[2,21]},{25:$Vp1,30:270},{25:$V41,34:271,103:$V51,105:$V61,106:$V71,107:$V81},o([29,125,126],$V1,{6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,116:24,4:272,2:$V0,24:$V2,25:$V3,35:$V4,38:$V5,42:$V6,117:$V7,121:$V8,122:$V9,123:$Va,127:$Vb,136:$Vc,137:$Vd,138:$Ve,140:$Vf,142:$Vg}),{29:[2,135]},{8:[1,273]},{45:[1,274]},{45:[1,275]},o($VM,[2,48]),{84:[2,83]},{29:[2,87]},o($V11,[2,95]),o($V11,[2,96]),{45:[2,104]},o($Vk1,[2,115]),{27:[1,276]},{45:[2,38]},{29:$Vq1,31:277,32:$Vr1},o($Vs1,[2,24]),{29:$Va1,124:278,125:$Vb1,126:$Vc1},{20:85,25:$V3,27:$Vu,40:279,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC},{27:$Vt,114:280},{27:$Vt,114:281},{2:$V0,4:282,6:3,7:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14,19:15,20:16,22:17,23:18,24:$V2,25:$V3,29:$V1,35:$V4,38:$V5,42:$V6,116:24,117:$V7,121:$V8,122:$V9,123:$Va,127:$Vb,136:$Vc,137:$Vd,138:$Ve,140:$Vf,142:$Vg},{29:[2,22]},{29:[2,134]},{8:[1,283]},o($Vi,[2,145]),o($Vi,[2,146]),{29:[1,284]},{11:286,20:288,25:$V3,27:$Vu,40:287,43:$Vv,48:69,50:70,53:71,57:72,59:73,62:$Vw,63:74,68:75,71:76,72:$Vx,73:$Vy,74:$Vz,75:$VA,76:$VB,77:84,78:86,82:$VC,133:285},o($Vi,[2,35]),{45:[1,289]},{45:[2,143]},{45:[2,144]},o([45,52,55,56,61,62,65,66,67,70,108,109,110,111,112,113],$Vj,{100:46,21:143,26:$Vk,80:$Vl,81:$Vm,101:$Vn,102:$Vo}),{27:$Vt,114:290},o($Vi,[2,142])],
+defaultActions: {29:[2,147],30:[2,148],36:[2,1],67:[2,149],68:[2,150],99:[2,25],104:[2,26],156:[2,153],172:[2,132],195:[2,81],198:[2,86],207:[2,102],210:[2,152],211:[2,27],220:[2,36],252:[2,20],253:[2,21],257:[2,135],262:[2,83],263:[2,87],266:[2,104],269:[2,38],277:[2,22],278:[2,134],286:[2,143],287:[2,144]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -105,16 +1317,33 @@ parseError: function parseError (str, hash) {
         throw error;
     }
 },
-parse: function parse(input) {
-    var self = this, stack = [0], tstack = [], vstack = [null], lstack = [], table = this.table, yytext = '', yylineno = 0, yyleng = 0, recovering = 0, TERROR = 2, EOF = 1;
+parse: function parse (input) {
+    var self = this,
+        stack = [0],
+        tstack = [], // token stack
+        vstack = [null], // semantic value stack
+        lstack = [], // location stack
+        table = this.table,
+        yytext = '',
+        yylineno = 0,
+        yyleng = 0,
+        recovering = 0,
+        TERROR = 2,
+        EOF = 1;
+
     var args = lstack.slice.call(arguments, 1);
+
+    //this.reductionCount = this.shiftCount = 0;
+
     var lexer = Object.create(this.lexer);
     var sharedState = { yy: {} };
+    // copy state
     for (var k in this.yy) {
-        if (Object.prototype.hasOwnProperty.call(this.yy, k)) {
-            sharedState.yy[k] = this.yy[k];
-        }
+      if (Object.prototype.hasOwnProperty.call(this.yy, k)) {
+        sharedState.yy[k] = this.yy[k];
+      }
     }
+
     lexer.setInput(input, sharedState.yy);
     sharedState.yy.lexer = lexer;
     sharedState.yy.parser = this;
@@ -123,123 +1352,207 @@ parse: function parse(input) {
     }
     var yyloc = lexer.yylloc;
     lstack.push(yyloc);
+
     var ranges = lexer.options && lexer.options.ranges;
+
     if (typeof sharedState.yy.parseError === 'function') {
         this.parseError = sharedState.yy.parseError;
     } else {
         this.parseError = Object.getPrototypeOf(this).parseError;
     }
-    function popStack(n) {
+
+    function popStack (n) {
         stack.length = stack.length - 2 * n;
         vstack.length = vstack.length - n;
         lstack.length = lstack.length - n;
     }
-    _token_stack:
-        var lex = function () {
-            var token;
-            token = lexer.lex() || EOF;
-            if (typeof token !== 'number') {
-                token = self.symbols_[token] || token;
-            }
-            return token;
-        };
+
+_token_stack:
+    var lex = function () {
+        var token;
+        token = lexer.lex() || EOF;
+        // if token isn't its numeric value, convert
+        if (typeof token !== 'number') {
+            token = self.symbols_[token] || token;
+        }
+        return token;
+    }
+
     var symbol, preErrorSymbol, state, action, a, r, yyval = {}, p, len, newState, expected;
     while (true) {
+        // retreive state number from top of stack
         state = stack[stack.length - 1];
+
+        // use default actions if available
         if (this.defaultActions[state]) {
             action = this.defaultActions[state];
         } else {
             if (symbol === null || typeof symbol == 'undefined') {
                 symbol = lex();
             }
+            // read action for current state and first input
             action = table[state] && table[state][symbol];
         }
-                    if (typeof action === 'undefined' || !action.length || !action[0]) {
-                var errStr = '';
+
+_handle_error:
+        // handle parse error
+        if (typeof action === 'undefined' || !action.length || !action[0]) {
+            var error_rule_depth;
+            var errStr = '';
+
+            // Return the rule stack depth where the nearest error rule can be found.
+            // Return FALSE when no error recovery rule was found.
+            function locateNearestErrorRecoveryRule(state) {
+                var stack_probe = stack.length - 1;
+                var depth = 0;
+
+                // try to recover from error
+                for(;;) {
+                    // check for error recovery rule in this state
+                    if ((TERROR.toString()) in table[state]) {
+                        return depth;
+                    }
+                    if (state === 0 || stack_probe < 2) {
+                        return false; // No suitable error recovery rule available.
+                    }
+                    stack_probe -= 2; // popStack(1): [symbol, action]
+                    state = stack[stack_probe];
+                    ++depth;
+                }
+            }
+
+            if (!recovering) {
+                // first see if there's any chance at hitting an error recovery rule:
+                error_rule_depth = locateNearestErrorRecoveryRule(state);
+
+                // Report error
                 expected = [];
                 for (p in table[state]) {
                     if (this.terminals_[p] && p > TERROR) {
-                        expected.push('\'' + this.terminals_[p] + '\'');
+                        expected.push("'"+this.terminals_[p]+"'");
                     }
                 }
                 if (lexer.showPosition) {
-                    errStr = 'Parse error on line ' + (yylineno + 1) + ':\n' + lexer.showPosition() + '\nExpecting ' + expected.join(', ') + ', got \'' + (this.terminals_[symbol] || symbol) + '\'';
+                    errStr = 'Parse error on line '+(yylineno+1)+":\n"+lexer.showPosition()+"\nExpecting "+expected.join(', ') + ", got '" + (this.terminals_[symbol] || symbol)+ "'";
                 } else {
-                    errStr = 'Parse error on line ' + (yylineno + 1) + ': Unexpected ' + (symbol == EOF ? 'end of input' : '\'' + (this.terminals_[symbol] || symbol) + '\'');
+                    errStr = 'Parse error on line '+(yylineno+1)+": Unexpected " +
+                                  (symbol == EOF ? "end of input" :
+                                              ("'"+(this.terminals_[symbol] || symbol)+"'"));
                 }
                 this.parseError(errStr, {
                     text: lexer.match,
                     token: this.terminals_[symbol] || symbol,
                     line: lexer.yylineno,
                     loc: yyloc,
-                    expected: expected
+                    expected: expected,
+                    recoverable: (error_rule_depth !== false)
                 });
+            } else if (preErrorSymbol !== EOF) {
+                error_rule_depth = locateNearestErrorRecoveryRule(state);
             }
-        if (action[0] instanceof Array && action.length > 1) {
-            throw new Error('Parse Error: multiple actions possible at state: ' + state + ', token: ' + symbol);
-        }
-        switch (action[0]) {
-        case 1:
-            stack.push(symbol);
-            vstack.push(lexer.yytext);
-            lstack.push(lexer.yylloc);
-            stack.push(action[1]);
-            symbol = null;
-            if (!preErrorSymbol) {
+
+            // just recovered from another error
+            if (recovering == 3) {
+                if (symbol === EOF || preErrorSymbol === EOF) {
+                    throw new Error(errStr || 'Parsing halted while starting to recover from another error.');
+                }
+
+                // discard current lookahead and grab another
                 yyleng = lexer.yyleng;
                 yytext = lexer.yytext;
                 yylineno = lexer.yylineno;
                 yyloc = lexer.yylloc;
-                if (recovering > 0) {
-                    recovering--;
-                }
-            } else {
-                symbol = preErrorSymbol;
-                preErrorSymbol = null;
+                symbol = lex();
             }
-            break;
-        case 2:
-            len = this.productions_[action[1]][1];
-            yyval.$ = vstack[vstack.length - len];
-            yyval._$ = {
-                first_line: lstack[lstack.length - (len || 1)].first_line,
-                last_line: lstack[lstack.length - 1].last_line,
-                first_column: lstack[lstack.length - (len || 1)].first_column,
-                last_column: lstack[lstack.length - 1].last_column
-            };
-            if (ranges) {
-                yyval._$.range = [
-                    lstack[lstack.length - (len || 1)].range[0],
-                    lstack[lstack.length - 1].range[1]
-                ];
+
+            // try to recover from error
+            if (error_rule_depth === false) {
+                throw new Error(errStr || 'Parsing halted. No suitable error recovery rule available.');
             }
-            r = this.performAction.apply(yyval, [
-                yytext,
-                yyleng,
-                yylineno,
-                sharedState.yy,
-                action[1],
-                vstack,
-                lstack
-            ].concat(args));
-            if (typeof r !== 'undefined') {
-                return r;
-            }
-            if (len) {
-                stack = stack.slice(0, -1 * len * 2);
-                vstack = vstack.slice(0, -1 * len);
-                lstack = lstack.slice(0, -1 * len);
-            }
-            stack.push(this.productions_[action[1]][0]);
-            vstack.push(yyval.$);
-            lstack.push(yyval._$);
-            newState = table[stack[stack.length - 2]][stack[stack.length - 1]];
-            stack.push(newState);
-            break;
-        case 3:
-            return true;
+            popStack(error_rule_depth);
+
+            preErrorSymbol = (symbol == TERROR ? null : symbol); // save the lookahead token
+            symbol = TERROR;         // insert generic error symbol as new lookahead
+            state = stack[stack.length-1];
+            action = table[state] && table[state][TERROR];
+            recovering = 3; // allow 3 real symbols to be shifted before reporting a new error
         }
+
+        // this shouldn't happen, unless resolve defaults are off
+        if (action[0] instanceof Array && action.length > 1) {
+            throw new Error('Parse Error: multiple actions possible at state: '+state+', token: '+symbol);
+        }
+
+        switch (action[0]) {
+            case 1: // shift
+                //this.shiftCount++;
+
+                stack.push(symbol);
+                vstack.push(lexer.yytext);
+                lstack.push(lexer.yylloc);
+                stack.push(action[1]); // push state
+                symbol = null;
+                if (!preErrorSymbol) { // normal execution/no error
+                    yyleng = lexer.yyleng;
+                    yytext = lexer.yytext;
+                    yylineno = lexer.yylineno;
+                    yyloc = lexer.yylloc;
+                    if (recovering > 0) {
+                        recovering--;
+                    }
+                } else {
+                    // error just occurred, resume old lookahead f/ before error
+                    symbol = preErrorSymbol;
+                    preErrorSymbol = null;
+                }
+                break;
+
+            case 2:
+                // reduce
+                //this.reductionCount++;
+
+                len = this.productions_[action[1]][1];
+
+                // perform semantic action
+                yyval.$ = vstack[vstack.length-len]; // default to $$ = $1
+                // default location, uses first token for firsts, last for lasts
+                yyval._$ = {
+                    first_line: lstack[lstack.length-(len||1)].first_line,
+                    last_line: lstack[lstack.length-1].last_line,
+                    first_column: lstack[lstack.length-(len||1)].first_column,
+                    last_column: lstack[lstack.length-1].last_column
+                };
+                if (ranges) {
+                  yyval._$.range = [lstack[lstack.length-(len||1)].range[0], lstack[lstack.length-1].range[1]];
+                }
+                r = this.performAction.apply(yyval, [yytext, yyleng, yylineno, sharedState.yy, action[1], vstack, lstack].concat(args));
+
+                if (typeof r !== 'undefined') {
+                    return r;
+                }
+
+                // pop off stack
+                if (len) {
+                    stack = stack.slice(0,-1*len*2);
+                    vstack = vstack.slice(0, -1*len);
+                    lstack = lstack.slice(0, -1*len);
+                }
+
+                stack.push(this.productions_[action[1]][0]);    // push nonterminal (reduce)
+                vstack.push(yyval.$);
+                lstack.push(yyval._$);
+                // goto new state = table[STATE][NONTERMINAL]
+                newState = table[stack[stack.length-2]][stack[stack.length-1]];
+                stack.push(newState);
+                break;
+
+            case 3:
+                // accept
+                return true;
+        }
+
     }
+
     return true;
 }};
 /* generated by jison-lex 0.3.4 */
