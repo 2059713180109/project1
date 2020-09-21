@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>MatrioshTS</title>
     <link href="../styles/styleIde.css" rel="stylesheet"/>
+    <script src="../scripts/front/ide.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="../scripts/parsers/analyzer.js"></script>
     <script src="../scripts/structure/Nodo.js"></script>
@@ -12,7 +13,6 @@
     <script src="../scripts/logic/BackEnd.js"/>
     <!-- VARIABLES GLOBALES -->
     <script type="text/javascript">
-        var _backEnd;
     </script>
 </head>
 <body background="../images/fondo-azul.jpg">
@@ -29,7 +29,7 @@
     <button id="btnLimpiarConsola" class="button">Limpiar Consola</button>
 </div>
 <div id="consola" align="center">
-<textarea id="txtConsola" cols="175" rows="10" style="background-color:#000000;font-style:inherit;color: chartreuse">
+<textarea id="txtConsola" disabled="disabled" cols="175" rows="10" style="background-color:#000000;font-style:inherit;color: chartreuse">
 </textarea>
 </div>
     <script type="text/javascript">
@@ -37,26 +37,50 @@
          * Metodos del Front
          */
         $(document).ready(function(){
+            //PASAMOS EL OBJETO DE CONSOLA
+            _txtConsola = $("#txtConsola");
+            $("#txtConsola").val(CONSOLE_LINE_MARK);
+            //CREAMOS LOS EVENTOS DE LOS BOTONES
             $("#btnGenerar").click(function(){
                 entrada = $("#txtEntrada").val();
                 ejecutar(entrada);
             });
-        });
+            $("#btnLimpiarConsola").click(function(){
+                $("#txtConsola").val(CONSOLE_LINE_MARK);
+            });
+            $("#btnGraficar").click(function(){
+                let cadAst="digraph G {\n" +
+                    "\n" +
+                    "\tsubgraph cluster_0 {\n" +
+                    "\t\tstyle=filled;\n" +
+                    "\t\tcolor=lightgrey;\n" +
+                    "\t\tnode [style=filled,color=white];\n" +
+                    "\t\ta0 -> a1 -> a2 -> a3;\n" +
+                    "\t\tlabel = \"process #1\";\n" +
+                    "\t}\n" +
+                    "\n" +
+                    "\tsubgraph cluster_1 {\n" +
+                    "\t\tnode [style=filled];\n" +
+                    "\t\tb0 -> b1 -> b2 -> b3;\n" +
+                    "\t\tlabel = \"process #2\";\n" +
+                    "\t\tcolor=blue\n" +
+                    "\t}\n" +
+                    "\tstart -> a0;\n" +
+                    "\tstart -> b0;\n" +
+                    "\ta3 -> end;\n" +
+                    "\tb3 -> end;\n" +
+                    "\n" +
+                    "\tstart [shape=Mdiamond];\n" +
+                    "\tend [shape=Msquare];\n" +
+                    "}\n";
+                let pagina = "https://dreampuf.github.io/GraphvizOnline/#"+cadAst;
+                let url=encodeURI(pagina);
+                window.open(url);
+            });
 
-        /**
-         * Metodo que ejecuta la entrada
-         * @param entrada
-         */
-        function ejecutar(entrada){
-            try {
-                _backEnd = new BackEnd();
-                let root = analyzer.parse(entrada);
-                //console.log(new Date());
-                alert("OK");
-            }catch (e){
-                alert(e);
-            }
-        }
+
+
+        });
     </script>
 </body>
 </html>
