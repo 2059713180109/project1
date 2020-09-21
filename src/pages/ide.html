@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>MatrioshTS</title>
+    <link href="../styles/styleIde.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="../scripts/parsers/analyzer.js"></script>
-</head>
-<body>
-    <textarea id="txtEntrada" cols="75" rows="28" style="background-color:#CCC;font-style:italic">
-
-    </textarea>
-    <p/>
-    <button id="btnGenerar">Generar codigo</button>
+    <script src="../scripts/structure/Nodo.js"></script>
+    <script src="../scripts/structure/Constantes.js"></script>
+    <script src="../scripts/structure/ListaErrores.js"></script>
+    <script src="../scripts/logic/BackEnd.js"/>
+    <!-- VARIABLES GLOBALES -->
     <script type="text/javascript">
+        var _backEnd;
+    </script>
+</head>
+<body background="../images/fondo-azul.jpg">
+<div id="divEntrada" align="center">
+<textarea id="txtEntrada" cols="175" rows="28" style="background-color:#CCC;font-style:italic">
+</textarea>
+</div>
+<div id="divBotones" align="center" >
+    <button id="btnTraducir" class="button">Traducir código</button>
+    <button id="btnGenerar" class="button">Ejecutar código</button>
+    <button id="btnGraficar"class="button">Graficar Ast</button>
+    <button id="btnTablaSimbolos" class="button">Ver Tabla Simbolos</button>
+    <button id="btnTablaErrores" class="button">Ver Tabla Errores</button>
+    <button id="btnLimpiarConsola" class="button">Limpiar Consola</button>
+</div>
+<div id="consola" align="center">
+<textarea id="txtConsola" cols="175" rows="10" style="background-color:#000000;font-style:inherit;color: chartreuse">
+</textarea>
+</div>
+    <script type="text/javascript">
+        /**
+         * Metodos del Front
+         */
         $(document).ready(function(){
             $("#btnGenerar").click(function(){
                 entrada = $("#txtEntrada").val();
@@ -20,10 +43,16 @@
             });
         });
 
+        /**
+         * Metodo que ejecuta la entrada
+         * @param entrada
+         */
         function ejecutar(entrada){
             try {
-                analyzer.parse(entrada);
-                alert("ok");
+                _backEnd = new BackEnd();
+                let root = analyzer.parse(entrada);
+                //console.log(new Date());
+                alert("OK");
             }catch (e){
                 alert(e);
             }
