@@ -11,7 +11,8 @@ const DataType = {
     ARRAY:"ARRAY",
     NULL:"NULL",
     UNTYPED:"UNTYPED",
-    EPSILON:"EPSILON"
+    EPSILON:"EPSILON",
+    ERROR:"ERROR"
 };
 
 const DeclarationType = {

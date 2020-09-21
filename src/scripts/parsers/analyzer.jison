@@ -250,7 +250,7 @@ SENTENCIA:	    DEC_DECLAVAR punto_coma
                 |error
                 {{
                     hijos = [];
-                    hijos.push(new Nodo(ERROR,undefined,undefined,yystate,DataType.UNTYPED));
+                    hijos.push(new Nodo(ERROR,undefined,undefined,yystate,DataType.ERROR));
                     $$=new Nodo("SENTENCIA=>error",0,hijos,yystate);
                     _backEnd.listaErrores.addError(this._$.last_line,this._$.last_column,ErrorType.SYNTACTIC,"No se esperaba: '"+yytext+"'.");
                 }}
