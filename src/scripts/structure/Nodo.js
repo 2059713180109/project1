@@ -24,7 +24,29 @@ var Nodo = (function (){
         this.tipoDato=tipoDato;
         this.esTerminal=tipoDato!=undefined;
         this.yystate = yystate;
+        this.numeroNodo = _backEnd.numeroNodo++;
     }
+
+    Nodo.prototype.getNumeroNodo = function (){
+        return this.numeroNodo
+    };
+
+    Nodo.prototype.isTerminal = function (){
+        return this.esTerminal;
+    };
+
+    Nodo.prototype.getNoTerminal = function (){
+        return this.produccion.split("=>")[0];
+    };
+
+    Nodo.prototype.getLexVal = function (){
+        return this.lexVal;
+    };
+
+    Nodo.prototype.getTipoDato = function (){
+        return this.tipoDato;
+    };
+
 
     return Nodo;
 }());

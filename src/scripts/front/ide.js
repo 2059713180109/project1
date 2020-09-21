@@ -3,6 +3,7 @@ const CONSOLE_MESSAGE_SUCCESSFULL="OK";
 const ENTER = "\n";
 
 var _backEnd;
+var _graphicUtil;
 var _txtConsola;
 
 /**
@@ -19,10 +20,20 @@ const ejecutar= function (cadEntrada){
     }catch (e){
         alert(e);
     }
-}
+};
 
 
 const print = function (strTexto){
     let strCad=_txtConsola.val();
     _txtConsola.val(strCad+strTexto+ENTER+CONSOLE_LINE_MARK);
-}
+};
+
+
+
+const getStringAst = function (){
+    if(_backEnd==undefined || _backEnd.root==undefined){
+        print("No existe árbol que graficar.");
+    }
+    _graphicUtil = new GraphicUtil();
+    return _graphicUtil.generarGrafo(_backEnd.root);
+};
