@@ -47,6 +47,10 @@ var Nodo = (function (){
         return this.tipoDato;
     };
 
+    Nodo.prototype.getValor = function (){
+        return this.getLexVal();
+    };
+
 
     return Nodo;
 }());

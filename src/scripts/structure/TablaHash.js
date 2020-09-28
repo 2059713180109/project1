@@ -5,7 +5,7 @@ var TablaHash = (function () {
         this.listItems=[];
         this.listKeys=[];
 
-        this.addItem=function(key,item){
+        this.put=function(key,item){
             //console.log("Se esta agregando "+key);
             this.items[key]=item;
             this.length++;
@@ -13,7 +13,7 @@ var TablaHash = (function () {
             this.listKeys.push(key);
             //console.log("Se agrego "+key);
         };
-        this.getItem=function(key){
+        this.get=function(key){
             return this.containsKey(key) ? this.items[key] : undefined;
         };
         this.containsKey=function(key){

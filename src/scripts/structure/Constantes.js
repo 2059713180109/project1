@@ -12,7 +12,10 @@ const DataType = {
     NULL:"NULL",
     UNTYPED:"UNTYPED",
     EPSILON:"EPSILON",
-    ERROR:"ERROR"
+    ERROR:"ERROR",
+    LISTA:"LISTA",
+    VACIO:"VACIO",
+    VARIOS:"VARIOS"
 };
 
 const DeclarationType = {
