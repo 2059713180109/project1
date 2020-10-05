@@ -51,6 +51,13 @@ var Nodo = (function (){
         return this.getLexVal();
     };
 
+    Nodo.prototype.getProduccion = function (){
+        return this.produccion;
+    };
+
+    Nodo.prototype.getHijo = function (noHijo){
+        return this.hijos[noHijo];
+    };
 
     return Nodo;
 }());

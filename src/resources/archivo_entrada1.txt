@@ -5,6 +5,10 @@ let a,b,c ;
 
 function mi_funcion (MI_VAR:number, mi_var2:string):void {}
 
+type llanta = {
+        rin:number,
+        marca:string
+        } ;
 
 function mi_funcion ():void {}
 

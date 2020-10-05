@@ -1,309 +1,615 @@
-swtich(produccion) {
-
+switch(produccion) {
     case "S=>SENTENCIAS EOF":
-    break;
+    {
+        break;
+    }
     case "SENTENCIAS=>SENTENCIA SENTENCIAS":
-    break;
+    {
+        break;
+    }
     case "SENTENCIAS=>":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>DEC_DECLAVAR punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>DEC_FUN":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>DEC_TYPE punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>ASIGNACION punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>IF":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>WHILE":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>DO_WHILE punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>SWITCH":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>FOR":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>BREAK punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>CONTINUE punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>RETURN punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>OBJETO_FUNCION UNARIO punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>CONSOLA punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>GRAFICAR punto_coma":
-    break;
+    {
+        break;
+    }
     case "SENTENCIA=>error":
-    break;
+    {
+        break;
+    }
     case "DEC_TYPE=>type_ id igual llave_abre LIST_ATRIBUTOS llave_cierra":
-    break;
+    {
+        break;
+    }
     case "LIST_ATRIBUTOS=>DEC_ATRIBUTO  LIST_ATRIBUTOS_P":
-    break;
+    {
+        break;
+    }
     case "LIST_ATRIBUTOS_P=>coma_ DEC_ATRIBUTO LIST_ATRIBUTOS_P":
-    break;
+    {
+        break;
+    }
     case "LIST_ATRIBUTOS_P=>":
-    break;
+    {
+        break;
+    }
     case "DEC_ATRIBUTO=>id dos_puntos TDATO":
-    break;
+    {
+        break;
+    }
     case "DEC_DECLAVAR=>const_ D_VAR LIST_VAR":
-    break;
+    {
+        break;
+    }
     case "DEC_DECLAVAR=>let_ D_VAR LIST_VAR":
-    break;
+    {
+        break;
+    }
     case "LIST_VAR=>coma_  D_VAR  LIST_VAR":
-    break;
+    {
+        break;
+    }
     case "LIST_VAR=>":
-    break;
+    {
+        break;
+    }
     case "D_VAR=>id  D_VAR_P1":
-    break;
+    {
+        break;
+    }
     case "D_VAR_P1=>igual CONDICION_TER":
-    break;
+    {
+        break;
+    }
     case "D_VAR_P1=>dos_puntos TDATO D_VAR_P2":
-    break;
+    {
+        break;
+    }
     case "D_VAR_P1=>":
-    break;
+    {
+        break;
+    }
     case "D_VAR_P2=>igual CONDICION_TER":
-    break;
+    {
+        break;
+    }
     case "D_VAR_P2=>":
-    break;
+    {
+        break;
+    }
     case "DEC_FUN=>function_ id par_abre LIST_PAR par_cierra dos_puntos TDATO llave_abre SENTENCIAS llave_cierra":
-    break;
+    {
+        break;
+    }
     case "LIST_PAR=>PARAM LIST_PAR_P ":
-    break;
+    {
+        break;
+    }
     case "LIST_PAR=>":
-    break;
+    {
+        break;
+    }
     case "LIST_PAR_P=>coma_ PARAM LIST_PAR_P":
-    break;
+    {
+        break;
+    }
     case "LIST_PAR_P=>":
-    break;
+    {
+        break;
+    }
     case "PARAM=>id  dos_puntos  TDATO":
-    break;
+    {
+        break;
+    }
     case "CONDICION_TER=>CONDICION_OR TERNARIO":
-    break;
+    {
+        break;
+    }
     case "CONDICION_OR=>CONDICION_AND CONDICION_OR_P":
-    break;
+    {
+        break;
+    }
     case "":
-    break;
+    {
+        break;
+    }
     case "CONDICION_AND=>CONDICION CONDICION_AND_P":
-    break;
+    {
+        break;
+    }
     case "CONDICION_AND_P=>and_ CONDICION_AND":
-    break;
+    {
+        break;
+    }
     case "CONDICION_AND_P=>":
-    break;
+    {
+        break;
+    }
     case "TERNARIO=>interrogacion_ CONDICION_TER dos_puntos CONDICION_TER":
-    break;
+    {
+        break;
+    }
     case "TERNARIO=>":
-    break;
+    {
+        break;
+    }
     case "CONDICION=>E SIG_REL E":
-    break;
+    {
+        break;
+    }
     case "CONDICION=>E":
-    break;
+    {
+        break;
+    }
     case "E=>F  E_P":
-    break;
+    {
+        break;
+    }
     case "E_P=> mas F E_P":
-    break;
+    {
+        break;
+    }
     case "E_P=>menos F E_P":
-    break;
+    {
+        break;
+    }
     case "E_P=>":
-    break;
+    {
+        break;
+    }
     case "F=>R  F_P":
-    break;
+    {
+        break;
+    }
     case "F_P=>por R F_P":
-    break;
+    {
+        break;
+    }
     case "F_P=>div R F_P":
-    break;
+    {
+        break;
+    }
     case "F_P=>mod R F_P":
-    break;
+    {
+        break;
+    }
     case "F_P=>":
-    break;
+    {
+        break;
+    }
     case "R=>T R_P":
-    break;
+    {
+        break;
+    }
     case "R_P=>pot T R_P":
-    break;
+    {
+        break;
+    }
     case "R_P=>":
-    break;
+    {
+        break;
+    }
     case "T=>T_P":
-    break;
+    {
+        break;
+    }
     case "T=>menos T_P":
-    break;
+    {
+        break;
+    }
     case "T=>not_ T_P":
-    break;
+    {
+        break;
+    }
     case "T_P=>par_abre CONDICION_TER par_cierra":
-    break;
+    {
+        break;
+    }
     case "T_P=>num":
-    break;
+    {
+        break;
+    }
     case "T_P=>bool":
-    break;
+    {
+        break;
+    }
     case "T_P=>str":
-    break;
+    {
+        break;
+    }
     case "T_P=>null_":
-    break;
+    {
+        break;
+    }
     case "T_P=>OBJETO_FUNCION ARREGLO":
-    break;
+    {
+        break;
+    }
     case "T_P=>OBJETO_FUNCION UNARIO":
-    break;
+    {
+        break;
+    }
     case "T_P=>OBJETO_TYPE":
-    break;
+    {
+        break;
+    }
     case "NEGATIVO=>menos":
-    break;
+    {
+        break;
+    }
     case "NEGATIVO=>":
-    break;
+    {
+        break;
+    }
     case "UNARIO=>incremento_":
-    break;
+    {
+        break;
+    }
     case "UNARIO=>decremento_":
-    break;
+    {
+        break;
+    }
     case "UNARIO=>":
-    break;
+    {
+        break;
+    }
     case "ARREGLO=>cor_abre ELEMENTOS cor_cierra":
-    break;
+    {
+        break;
+    }
     case "ELEMENTOS=>CONDICION_TER ELEMENTOS_P":
-    break;
+    {
+        break;
+    }
     case "ELEMENTOS=>":
-    break;
+    {
+        break;
+    }
     case "ELEMENTOS_P=>coma_  CONDICION_TER  ELEMENTOS_P":
-    break;
+    {
+        break;
+    }
     case "ELEMENTOS_P=>":
-    break;
+    {
+        break;
+    }
     case "OBJETO_TYPE=>llave_abre  ATRIBUTOS  llave_cierra":
-    break;
+    {
+        break;
+    }
     case "ATRIBUTOS=>ATRIBUTOS_P":
-    break;
+    {
+        break;
+    }
     case "ATRIBUTOS_P=>coma_  ATRIBUTO  ATRIBUTOS_P":
-    break;
+    {
+        break;
+    }
     case "ATRIBUTOS_P=>":
-    break;
+    {
+        break;
+    }
     case "ATRIBUTO=>id dos_puntos CONDICION_TER":
-    break;
+    {
+        break;
+    }
     case "OBJETO_FUNCION=>id OBJ_FUN_CUERPO":
-    break;
+    {
+        break;
+    }
     case "OBJ_FUN_CUERPO=>PARAMETROS_FUNCION SUB_OBJETO":
-    break;
+    {
+        break;
+    }
     case "OBJ_FUN_CUERPO=>DIMENSION SUB_OBJETO":
-    break;
+    {
+        break;
+    }
     case "SUB_OBJETO=>punto_  OB_ATRIBUTO":
-    break;
+    {
+        break;
+    }
     case "SUB_OBJETO=>":
-    break;
+    {
+        break;
+    }
     case "OB_ATRIBUTO=>id DIMENSION SUB_OBJETO":
-    break;
+    {
+        break;
+    }
     case "OB_ATRIBUTO=>push_ PARAMETROS_FUNCION SUB_OBJETO":
-    break;
+    {
+        break;
+    }
     case "OB_ATRIBUTO=>pop_  SUB_OBJETO":
-    break;
+    {
+        break;
+    }
     case "OB_ATRIBUTO=>length_":
-    break;
+    {
+        break;
+    }
     case "DIMENSION=>cor_abre CONDICION_TER cor_cierra DIMENSION":
-    break;
+    {
+        break;
+    }
     case "DIMENSION=>":
-    break;
+    {
+        break;
+    }
     case "PARAMETROS_FUNCION=>par_abre ARGUMENTOS par_cierra":
-    break;
+    {
+        break;
+    }
     case "ARGUMENTOS=>CONDICION_TER ARGUMENTOS_P":
-    break;
+    {
+        break;
+    }
     case "ARGUMENTOS=>":
-    break;
+    {
+        break;
+    }
     case "ARGUMENTOS_P=>coma_  CONDICION_TER  ARGUMENTOS_P":
-    break;
+    {
+        break;
+    }
     case "ARGUMENTOS_P=>":
-    break;
+    {
+        break;
+    }
     case "ASIGNACION=>OBJETO_FUNCION OPERADOR_ASIGNACION CONDICION_TER":
-    break;
+    {
+        break;
+    }
     case "OPERADOR_ASIGNACION=>igual":
-    break;
+    {
+        break;
+    }
     case "OPERADOR_ASIGNACION=>menos_igual":
-    break;
+    {
+        break;
+    }
     case "OPERADOR_ASIGNACION=>mas_igual":
-    break;
+    {
+        break;
+    }
     case "TDATO=>number_ TDIMENSION":
-    break;
+    {
+        break;
+    }
     case "TDATO=>string_ TDIMENSION":
-    break;
+    {
+        break;
+    }
     case "TDATO=>boolean_ TDIMENSION":
-    break;
+    {
+        break;
+    }
     case "TDATO=>id TDIMENSION":
-    break;
+    {
+        break;
+    }
     case "TDATO=>void_":
-    break;
+    {
+        break;
+    }
     case "TDIMENSION=>cor_abre cor_cierra TDIMENSION":
-    break;
+    {
+        break;
+    }
     case "TDIMENSION=>":
-    break;
+    {
+        break;
+    }
     case "SIG_REL=>menor":
-    break;
+    {
+        break;
+    }
     case "SIG_REL=>mayor":
-    break;
+    {
+        break;
+    }
     case "SIG_REL=>menor_igual":
-    break;
+    {
+        break;
+    }
     case "SIG_REL=>mayor_igual":
-    break;
+    {
+        break;
+    }
     case "SIG_REL=>igual_igual":
-    break;
+    {
+        break;
+    }
     case "SIG_REL=>diferente":
-    break;
+    {
+        break;
+    }
     case "IF_SENTENCE=>llave_abre SENTENCIAS llave_cierra":
-    break;
+    {
+        break;
+    }
     case "IF_CONDICION=>par_abre CONDICION_TER par_cierra":
-    break;
+    {
+        break;
+    }
     case "IF_STATEMENT=>if_ IF_CONDICION IF_SENTENCE ":
-    break;
+    {
+        break;
+    }
     case "IF:=>IF_STATEMENT ELSE_IF ":
-    break;
+    {
+        break;
+    }
     case "ELSE_IF=>else_ ELSE_IF_P":
-    break;
+    {
+        break;
+    }
     case "ELSE_IF=>":
-    break;
+    {
+        break;
+    }
     case "ELSE_IF_P=>IF_STATEMENT ELSE_IF":
-    break;
+    {
+        break;
+    }
     case "ELSE_IF_P=>IF_SENTENCE":
-    break;
+    {
+        break;
+    }
     case "WHILE=>while_ IF_CONDICION IF_SENTENCE":
-    break;
+    {
+        break;
+    }
     case "DO_WHILE=>do_  IF_SENTENCE while_ IF_CONDICION":
-    break;
+    {
+        break;
+    }
     case "SWITCH=>switch_ IF_CONDICION llave_abre CASOS llave_cierra":
-    break;
+    {
+        break;
+    }
     case "CASOS=>case_ CONDICION_TER dos_puntos SENTENCIAS CASOS":
-    break;
+    {
+        break;
+    }
     case "CASOS=>default_ dos_puntos SENTENCIAS":
-    break;
+    {
+        break;
+    }
     case "CASOS=>":
-    break;
+    {
+        break;
+    }
     case "FOR=>for_ par_abre FOR_P":
-    break;
+    {
+        break;
+    }
     case "FOR_P=>let_ FOR_LET":
-    break;
+    {
+        break;
+    }
     case "FOR_P=>const_ FOR_CONST":
-    break;
+    {
+        break;
+    }
     case "FOR_LET=>FOR_TRADICIONAL":
-    break;
+    {
+        break;
+    }
     case "FOR_LET=>FOR_OF":
-    break;
+    {
+        break;
+    }
     case "FOR_TRADICIONAL=>id igual CONDICION_TER punto_coma CONDICION_TER punto_coma FOR_TRADICIONAL_INC par_cierra IF_SENTENCE":
-    break;
+    {
+        break;
+    }
     case "FOR_TRADICIONAL_INC=>ASIGNACION":
-    break;
+    {
+        break;
+    }
     case "FOR_TRADICIONAL_INC=>ASIGNACION":
-    break;
+    {
+        break;
+    }
     case "FOR_OF=>id of_ id par_cierra IF_SENTENCE":
-    break;
+    {
+        break;
+    }
     case "FOR_CONST=>id in_ id par_cierra IF_SENTENCE":
-    break;
+    {
+        break;
+    }
     case "BREAK=>break_":
-    break;
+    {
+        break;
+    }
     case "CONTINUE=>continue_":
-    break;
+    {
+        break;
+    }
     case "RETURN=>return_  RETURN_P":
-    break;
+    {
+        break;
+    }
     case "RETURN_P=>CONDICION_TER":
-    break;
+    {
+        break;
+    }
     case "RETURN_P=>":
-    break;
+    {
+        break;
+    }
     case "CONSOLA=>console_ punto_ log_ PARAMETROS_FUNCION":
-    break;
+    {
+        break;
+    }
     case "GRAFICAR=>graficar_ts par_abre par_cierra":
-    break;
+    {
+        break;
+    }
     default:
+    {
+        break;
+    }
 
 }

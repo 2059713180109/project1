@@ -1,4 +1,4 @@
-const CONSOLE_LINE_MARK = '->';
+const CONSOLE_LINE_MARK = '>';
 const CONSOLE_MESSAGE_SUCCESSFULL="OK";
 const ENTER = "\n";
 
@@ -14,11 +14,26 @@ const ejecutar= function (cadEntrada){
     try {
         print("Iniciando ejecucion: "+new Date());
         _backEnd = new BackEnd();
-        let root = analyzer.parse(cadEntrada);
-        //console.log(new Date());
+
+        try {
+            let isParseOk = analyzer.parse(cadEntrada);
+            if(isParseOk){
+                console.info('Se genero correctamente el árbol. ');
+            }else{
+                throw "No se pudo generar correctamente el árbol. ";
+            }
+        }catch (e){
+            throw ('Error al generar el AST. '+e);
+        }
+        _backEnd.cargar();
+        console.info('Se cargo exitosamente las tabla de simbolos. ');
+        if(_backEnd.listaErrores.size>0){
+            throw ("Existen errores durante el análisis. ");
+        }
         print(CONSOLE_MESSAGE_SUCCESSFULL);
     }catch (e){
-        alert(e);
+        print(e);
+        console.log(e);
     }
 };
 
