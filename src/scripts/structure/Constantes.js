@@ -18,9 +18,22 @@ const DataType = {
     VARIOS:"VARIOS"
 };
 
-const DeclarationType = {
+const TipoDeclacion = {
     CONST:"CONST",
     LET:"LET"
+};
+
+
+const TipoDato = {
+    BOOLEAN: "BOOLEAN",
+    NUMBER:"NUMBER",
+    STRING:"STRING",
+    VOID:"VOID"
+};
+
+const Indicador = {
+    N:"N",
+    S:"S"
 };
 
 const  ErrorType = {
@@ -28,3 +41,4 @@ const  ErrorType = {
     SYNTACTIC:"SINTACTICO",
     SEMANTIC:"SEMANTICO"
 };
+

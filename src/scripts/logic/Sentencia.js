@@ -420,34 +420,6 @@ Sentencia.prototype.cargar=function (root){
         {
             break;
         }
-        case "TDATO=>number_ TDIMENSION":
-        {
-            break;
-        }
-        case "TDATO=>string_ TDIMENSION":
-        {
-            break;
-        }
-        case "TDATO=>boolean_ TDIMENSION":
-        {
-            break;
-        }
-        case "TDATO=>id TDIMENSION":
-        {
-            break;
-        }
-        case "TDATO=>void_":
-        {
-            break;
-        }
-        case "TDIMENSION=>cor_abre cor_cierra TDIMENSION":
-        {
-            break;
-        }
-        case "TDIMENSION=>":
-        {
-            break;
-        }
         case "SIG_REL=>menor":
         {
             break;

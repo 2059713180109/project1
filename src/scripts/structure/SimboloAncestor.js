@@ -1,7 +1,8 @@
 class SimboloAncestor{
-    constructor(id, tipoDato ) {
+    constructor(id, tipoDato) {
         this.id = id;
         this.tipoDato = tipoDato;
+        this.indTipoModificable = TipoDato==undefined?Indicador.S:Indicador.N;
     }
 }
 
